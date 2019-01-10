@@ -224,7 +224,20 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#format" class="toc-h1 toc-link" data-title="Format">Format</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#supported-types" class="toc-h2 toc-link" data-title="Supported types">Supported types</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#testing-authentication" class="toc-h2 toc-link" data-title="Testing authentication">Testing authentication</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
@@ -245,12 +258,9 @@
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
-          <li>
-            <a href="#additional-comments" class="toc-h1 toc-link" data-title="Additional Comments">Additional Comments</a>
-          </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://handshq.com/settings/api'>View your HandsHQ API settings</a></li>
+            <li><a href='https://app.handshq.com/settings/api'>View your HandsHQ API settings</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -259,20 +269,22 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the HandsHQ API! You can use our API to access HandsHQ API endpoints, in order to manage your resources on your HandsHQ account.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<h1 id='format'>Format</h1><h2 id='supported-types'>Supported types</h2>
+<p>Currently only <code>JSON</code> is supported for both requests and responses. With the intention to being as compliant
+<a href="https://github.com/json-api/json-api/issues/795">(as possible)</a>
+with the specifications and guidelines set out by
+<a href="https://jsonapi.org/">JSON:API</a></p>
+<h1 id='authentication'>Authentication</h1><h2 id='testing-authentication'>Testing authentication</h2><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://api.handshq.com/v1/auth"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>  <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>[api_token]</code> with your API key.</p>
+<p>In all subsequent examples make sure to replace <code>[api_token]</code> with your API key.</p>
 </blockquote>
 
-<p>HandsHQ uses API keys to allow access to the API. You can find your API key in the API tab of your settings page.</p>
+<p>HandsHQ uses API keys to allow access to the API. You can find your API key in the API tab of your settings page
+<a href="https://app.handshq.com/settings/api">here.</a></p>
 
 <p>HandsHQ expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
@@ -281,6 +293,12 @@ curl <span class="s2">"https://api.handshq.com/v1/auth"</span> <span class="se">
 <aside class="notice">
 You must replace <code>[api_token]</code> with your personal API key.
 </aside>
+
+<p>If you need to test that you have a valid API key use the following endpoint:</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.handshq.com/v1/auth</code></p>
+<h3 id='response'>Response</h3>
+<p>Successful authentication with return a <code>200</code> response, otherwise a <code>401</code> will be returned when supplied with an invalid API key.</p>
 <h1 id='projects'>Projects</h1><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl http://api.handshq.com/v1/projects <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
@@ -373,63 +391,8 @@ Remember — ensure that values for that field correspond to their <code>data_ty
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
 </code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.handshq.com/v1/fields</code></p>
-<h3 id='response'>Response</h3>
-<p>You retrieve an ordered list of fields which you are currently using for your project document information and formatting.</p>
-<h3 id='fields-information'>Fields information</h3>
-<ul>
-<li><code>label</code> - Label on project forms and end documents, e.g. &#39;Address 1&#39;</li>
-<li><code>requred</code> - Whether or not the field is required for project creation.</li>
-<li><code>value</code> - The default value that will be immediately be applied to fields.</li>
-<li><code>data_type</code> - How the value of the field will be stored and the type of field provided to the user for editing. Will one of the following:
-
-<ul>
-<li><code>string</code></li>
-<li><code>text</code></li>
-<li><code>date</code></li>
-</ul></li>
-</ul>
-
-<aside class="notice">
-Fieldset information will be provided as well as fields, these describe the group that the field belongs to, for example <code>Address 1</code> and <code>Address 2</code> might be within the <code>Location</code> fieldset.
-</aside>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='response'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Site supervisor"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact number"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
@@ -483,177 +446,51 @@ Fieldset information will be provided as well as fields, these describe the grou
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Address line 3"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Town"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"County"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postcode"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Principal designer"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Principal contractor"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Site supervisor"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Details"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre>
+<p>You retrieve an ordered list of fields which you are currently using for your project document information and formatting.</p>
+<h3 id='fields-information'>Fields information</h3>
+<ul>
+<li><code>label</code> - Label on project forms and end documents, e.g. &#39;Address 1&#39;</li>
+<li><code>requred</code> - Whether or not the field is required for project creation.</li>
+<li><code>value</code> - The default value that will be immediately be applied to fields.</li>
+<li><code>data_type</code> - How the value of the field will be stored and the type of field provided to the user for editing. Will one of the following:
+
+<ul>
+<li><code>string</code></li>
+<li><code>text</code></li>
+<li><code>date</code></li>
+</ul></li>
+</ul>
+
+<aside class="notice">
+Fieldset information will be provided as well as fields, these describe the group that the field belongs to, for example <code>Address 1</code> and <code>Address 2</code> might be within the <code>Location</code> fieldset.
+</aside>
+<h1 id='errors'>Errors</h1>
+<blockquote>
+<p>Example 401 response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid authentication details"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid_authentication"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>The HandsHQ API uses the following error codes:</p>
 
 <p>There may be additional info given in the error in order to help fix the issue, for example if you have reached your limits of document creation.</p>
@@ -689,8 +526,6 @@ Fieldset information will be provided as well as fields, these describe the grou
 <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
 </tbody></table>
-<h1 id='additional-comments'>Additional Comments</h1>
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
 
       </div>
       <div class="dark-box">
