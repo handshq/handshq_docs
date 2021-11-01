@@ -275,8 +275,8 @@
 with the specifications and guidelines set out by
 <a href="https://jsonapi.org/">JSON:API</a></p>
 <h1 id='authentication'>Authentication</h1><h2 id='testing-authentication'>Testing authentication</h2><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://api.handshq.com/v1/auth"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>  <span class="se">\</span>
+curl <span class="s2">"https://api.handshq.com/v1/authentication"</span> <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span>  <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
 </code></pre>
 <blockquote>
@@ -296,11 +296,11 @@ You must replace <code>[api_token]</code> with your personal API key.
 
 <p>If you need to test that you have a valid API key use the following endpoint:</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.handshq.com/v1/auth</code></p>
+<p><code>GET https://api.handshq.com/v1/authentication</code></p>
 <h3 id='response'>Response</h3>
 <p>Successful authentication with return a <code>200</code> response, otherwise a <code>401</code> will be returned when supplied with an invalid API key.</p>
 <h1 id='projects'>Projects</h1><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl http://api.handshq.com/v1/projects <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
   --request POST <span class="se">\</span>
   -d <span class="s2">"[json_payload]"</span>
@@ -387,7 +387,7 @@ Remember — ensure that values for that field correspond to their <code>data_ty
 </span></code></pre><h1 id='fields'>Fields</h1><h2 id='retrieving-current-fields'>Retrieving current fields</h2>
 <p>HandsHQ projects are created with a number of fields which can change depending on which template you are currently using. In order to find out information on which fields you are using you can use this endpoint.</p>
 <pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/fields <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>  <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span>  <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
 </code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://api.handshq.com/v1/fields</code></p>
