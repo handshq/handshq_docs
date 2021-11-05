@@ -1,0 +1,243 @@
+<h1 id='event-subscriptions'>Event Subscriptions</h1><h2 id='creating-an-event-subscription'>Creating an event subscription</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/event_subscriptions <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request POST <span class="se">\</span>
+  -d <span class="s2">"[json_payload]"</span>
+</code></pre>
+<blockquote>
+<p>Example Event Subscription creation payload.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"event_subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.external_location.com/webhooks"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf_created"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint allows you to be notified of certain events. Those currently supported are:</p>
+
+<ul>
+<li><code>version_pdf_created</code> - this is fired after we have generated and stored a project version PDF, which is now ready to be downloaded.</li>
+</ul>
+
+<aside class="notice">
+  Please note that the `version_pdf_created` event is scoped to look for subscriptions which were created by the same division that the project belongs to.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api.handshq.com/v1/event_subscriptions</code></p>
+<h3 id='allowed-event-subscription-parameters'>Allowed Event Subscription Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>external_url</td>
+<td>String</td>
+<td>Yes</td>
+<td>A valid URL which we will send a <code>POST</code> request to when the event occurs (see below for samples of these)</td>
+</tr>
+<tr>
+<td>event_type</td>
+<td>String</td>
+<td>Yes</td>
+<td>The name of the event you wish to be notified about, allowed values: [<code>version_pdf_created</code>]</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
+
+<blockquote>
+<p>201</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"event_subscription"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscriber"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"related"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.external_location.com/webhooks"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='removing-an-event-subscription'>Removing an event subscription</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/event_subscriptions/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request DELETE
+</code></pre>
+<p>If you no longer wish for an event subscription to be active, then this endpoint can delete an already created one.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>DELETE https://api.handshq.com/v1/event_subscriptions/[id]</code></p>
+<h3 id='allowed-event-subscription-parameters-2'>Allowed Event Subscription Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>String</td>
+<td>Yes</td>
+<td>The id of the event subscription you wish to destroy</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a <code>204</code> status code, and thusly no accompanying body.</p>
+<h1 id='event-notifications'>Event Notifications</h1>
+<p>Each Event Subscription will send a <code>POST</code> request to the location set out within it&#39;s own <code>external_url</code> that has been provided once the event occurs.</p>
+
+<p>These will be in a <code>JSON</code> format and still in-keeping with the <code>JSON:API</code> specification.</p>
+
+<p>The body of an event subscription will vary depending on the type of event being subscribed to.</p>
+<h2 id='version-pdf-created'>Version PDF Created</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-05T11:30:32.742+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">32540</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://exampleRemoteStorage.com/123.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"is_fully_signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pdf_filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-lovely-project.pdf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"display_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-05T11:29:33.222+00:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane D. created the project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-05T11:29:32.955+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"displayNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My lovely project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ref1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"261"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"265"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"latest_reviewed_version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3000/projects/19"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data'>Data:</h3>
+<ul>
+<li>The attributes of PDF record
+
+<ul>
+<li>Link to the URL of where the PDF is hosted</li>
+</ul></li>
+</ul>
+<h3 id='included-resources'>Included Resources:</h3>
+<ul>
+<li><p>The <code>Project</code> that it was derived from.</p>
+
+<ul>
+<li>Link to the project within HandsHQ</li>
+</ul></li>
+<li><p>The <code>History</code> describing what caused the creation of a new <code>Version</code></p>
+
+<ul>
+<li>Included description of the latest change</li>
+</ul></li>
+<li><p>The <code>Version</code> of a <code>Project</code> which had been generated into a PDF</p>
+
+<ul>
+<li>Included numbering of the version</li>
+</ul></li>
+<li><p>The author (<code>User</code>) of the project.</p></li>
+</ul>
+
+<aside class='notice'>
+  <strong>Please Note</strong>:
+  <li>The URL of the PDF (as described in "links" => "content") is only valid for 48 hours.</li>
+  <li>This event may fire on occassion for the same version, in cases where a PDF is being regenerated (e.g. in the case of digital signatures)</li>
+</aside>
