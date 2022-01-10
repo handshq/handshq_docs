@@ -313,7 +313,9 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the HandsHQ API! You can use our API to access HandsHQ API endpoints, in order to manage your resources on your HandsHQ account.</p>
 <h1 id='format'>Format</h1><h2 id='supported-types'>Supported types</h2>
-<p>Currently only <code>JSON</code> is supported for both requests and responses. With the specifications and guidelines set out by
+<p>Currently only <code>JSON</code> is supported for both requests and responses. With the intention to being as compliant
+<a href="https://github.com/json-api/json-api/issues/795">(as possible)</a>
+with the specifications and guidelines set out by
 <a href="https://jsonapi.org/">JSON:API</a></p>
 <h1 id='authentication'>Authentication</h1><h2 id='testing-authentication'>Testing authentication</h2><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://api.handshq.com/v1/authentication"</span> <span class="se">\</span>
@@ -346,7 +348,7 @@ You must replace <code>[api_token]</code> with your personal API key.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de9559a5dsjhsj74da6afb75a4dsds1e2769b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dc729c6795ab40608f8d1a7e8d768e31"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actor"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Company Ltd"</span><span class="w">
@@ -519,6 +521,9 @@ You must replace <code>[api_token]</code> with your personal API key.
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
           </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -529,7 +534,9 @@ You must replace <code>[api_token]</code> with your personal API key.
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My lovely project"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ref1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -543,6 +550,9 @@ You must replace <code>[api_token]</code> with your personal API key.
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
             </span><span class="p">},</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"latest_reviewed_version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -771,8 +781,8 @@ You must replace <code>[api_token]</code> with your personal API key.
 </span></code></pre>
 <p>This endpoint allows you to create a project for the company who is registered with the api key you provide.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://api.handshq.com/v1/projects</code></p>
-<h3 id='required-parameters'>Required Parameters</h3>
+<p><code>POST https://api.handshq.com/v1/projects?user_email=#{user_email}</code></p>
+<h3 id='required-query-parameters'>Required Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -807,15 +817,15 @@ You must replace <code>[api_token]</code> with your personal API key.
 </tr>
 <tr>
 <td>start_date</td>
-<td>DateTime</td>
+<td>Date</td>
 <td>No</td>
-<td>To denote when your project starts, used in conjunction with <code>end_time</code> to denote whether project is still active.</td>
+<td>To denote when your project starts, used in conjunction with <code>end_date</code> to denote whether project is still active.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>DateTime</td>
+<td>Date</td>
 <td>No</td>
-<td>To denote when your project ends, used in conjunction with <code>start_time</code> to denote whether project is still active.</td>
+<td>To denote when your project ends, used in conjunction with <code>start_date</code> to denote whether project is still active.</td>
 </tr>
 <tr>
 <td>reference</td>
@@ -825,7 +835,7 @@ You must replace <code>[api_token]</code> with your personal API key.
 </tr>
 <tr>
 <td>fields_attributes</td>
-<td>Object</td>
+<td>object</td>
 <td>No</td>
 <td>More information available <a href="#for-project-creation">here</a></td>
 </tr>
@@ -905,15 +915,12 @@ You must replace <code>[api_token]</code> with your personal API key.
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
       </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"248"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint allows you to create a project for the company who is registered with the api key you provide.</p>
+<p>This endpoint allows you to update a project for the company who is registered with the api key you provide.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://api.handshq.com/v1/projects/#{project_id}</code></p>
 <h3 id='allowed-project-parameters-2'>Allowed Project Parameters</h3>
@@ -935,15 +942,15 @@ You must replace <code>[api_token]</code> with your personal API key.
 </tr>
 <tr>
 <td>start_date</td>
-<td>DateTime</td>
+<td>Date</td>
 <td>No</td>
-<td>To denote when your project starts, used in conjunction with <code>end_time</code> to denote whether project is still active.</td>
+<td>To denote when your project starts, used in conjunction with <code>end_date</code> to denote whether project is still active.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>DateTime</td>
+<td>Date</td>
 <td>No</td>
-<td>To denote when your project ends, used in conjunction with <code>start_time</code> to denote whether project is still active.</td>
+<td>To denote when your project ends, used in conjunction with <code>start_date</code> to denote whether project is still active.</td>
 </tr>
 <tr>
 <td>reference</td>
@@ -953,7 +960,7 @@ You must replace <code>[api_token]</code> with your personal API key.
 </tr>
 <tr>
 <td>fields_attributes</td>
-<td>Object</td>
+<td>object</td>
 <td>No</td>
 <td>More information available <a href="#for-project-updates">here</a></td>
 </tr>
