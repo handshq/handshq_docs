@@ -262,7 +262,16 @@
             <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#viewing-projects" class="toc-h2 toc-link" data-title="Viewing projects">Viewing projects</a>
+                  </li>
+                  <li>
+                    <a href="#viewing-projects-by-project-reference" class="toc-h2 toc-link" data-title="Viewing projects by project reference">Viewing projects by project reference</a>
+                  </li>
+                  <li>
                     <a href="#creating-a-project" class="toc-h2 toc-link" data-title="Creating a project">Creating a project</a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-project" class="toc-h2 toc-link" data-title="Updating a project">Updating a project</a>
                   </li>
               </ul>
           </li>
@@ -270,7 +279,22 @@
             <a href="#fields" class="toc-h1 toc-link" data-title="Fields">Fields</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#retrieving-current-fields" class="toc-h2 toc-link" data-title="Retrieving current fields">Retrieving current fields</a>
+                    <a href="#introduction-to-fields" class="toc-h2 toc-link" data-title="Introduction To Fields">Introduction To Fields</a>
+                  </li>
+                  <li>
+                    <a href="#fields-index" class="toc-h2 toc-link" data-title="Fields Index">Fields Index</a>
+                  </li>
+                  <li>
+                    <a href="#assigning-field-values-to-projects" class="toc-h2 toc-link" data-title="Assigning field values to Projects">Assigning field values to Projects</a>
+                  </li>
+                  <li>
+                    <a href="#for-project-creation" class="toc-h2 toc-link" data-title="For Project creation">For Project creation</a>
+                  </li>
+                  <li>
+                    <a href="#for-project-updates" class="toc-h2 toc-link" data-title="For Project updates">For Project updates</a>
+                  </li>
+                  <li>
+                    <a href="#faq" class="toc-h2 toc-link" data-title="FAQ">FAQ</a>
                   </li>
               </ul>
           </li>
@@ -289,9 +313,7 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the HandsHQ API! You can use our API to access HandsHQ API endpoints, in order to manage your resources on your HandsHQ account.</p>
 <h1 id='format'>Format</h1><h2 id='supported-types'>Supported types</h2>
-<p>Currently only <code>JSON</code> is supported for both requests and responses. With the intention to being as compliant
-<a href="https://github.com/json-api/json-api/issues/795">(as possible)</a>
-with the specifications and guidelines set out by
+<p>Currently only <code>JSON</code> is supported for both requests and responses. With the specifications and guidelines set out by
 <a href="https://jsonapi.org/">JSON:API</a></p>
 <h1 id='authentication'>Authentication</h1><h2 id='testing-authentication'>Testing authentication</h2><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://api.handshq.com/v1/authentication"</span> <span class="se">\</span>
@@ -318,7 +340,20 @@ You must replace <code>[api_token]</code> with your personal API key.
 <p><code>GET https://api.handshq.com/v1/authentication</code></p>
 <h3 id='response'>Response</h3>
 <p>Successful authentication with return a <code>200</code> response, otherwise a <code>401</code> will be returned when supplied with an invalid API key.</p>
-<h1 id='event-subscriptions'>Event Subscriptions</h1><h2 id='creating-an-event-subscription'>Creating an event subscription</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/event_subscriptions <span class="se">\</span>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de9559a5dsjhsj74da6afb75a4dsds1e2769b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"actor"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Company Ltd"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='event-subscriptions'>Event Subscriptions</h1><h2 id='creating-an-event-subscription'>Creating an event subscription</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/event_subscriptions <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
@@ -370,7 +405,7 @@ You must replace <code>[api_token]</code> with your personal API key.
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
-<p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
+<p>Successful requests will return a json payload of the event subscription that was created and a <code>201</code> status code.</p>
 
 <blockquote>
 <p>201</p>
@@ -484,9 +519,6 @@ You must replace <code>[api_token]</code> with your personal API key.
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
           </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -511,9 +543,6 @@ You must replace <code>[api_token]</code> with your personal API key.
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
             </span><span class="p">},</span><span class="w">
           </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"latest_reviewed_version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -561,9 +590,165 @@ You must replace <code>[api_token]</code> with your personal API key.
   <li>The URL of the PDF (as described in "links" => "content") is only valid for 48 hours.</li>
   <li>This event may fire on occassion for the same version, in cases where a PDF is being regenerated (e.g. in the case of digital signatures)</li>
 </aside>
-<h1 id='projects'>Projects</h1><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
+<h1 id='projects'>Projects</h1><h2 id='viewing-projects'>Viewing projects</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span>
+</code></pre>
+<p>This endpoint allows you to view projects for the company who is registered with the api key you provide.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects</code></p>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of that division&#39;s projects and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1234"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project 2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/5678"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='viewing-projects-by-project-reference'>Viewing projects by project reference</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects?reference<span class="o">=</span><span class="c">#{project_reference} \</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span>
+</code></pre>
+<p>Adding a reference to the query string will return all projects for that company that match that project reference.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects?reference=#{project_reference}</code></p>
+<h3 id='allowed-query-parameters'>Allowed Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reference</td>
+<td>String</td>
+<td>No</td>
+<td>The project reference</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a json payload of that division&#39;s projects that match the project reference and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1234"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   --request POST <span class="se">\</span>
   -d <span class="s2">"[json_payload]"</span>
 </code></pre>
@@ -574,6 +759,9 @@ You must replace <code>[api_token]</code> with your personal API key.
     </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project with extra details"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -582,9 +770,9 @@ You must replace <code>[api_token]</code> with your personal API key.
 
 </span></code></pre>
 <p>This endpoint allows you to create a project for the company who is registered with the api key you provide.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api.handshq.com/v1/projects?user_email=#{user_email}</code></p>
-<h3 id='required-query-parameters'>Required Query Parameters</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.handshq.com/v1/projects</code></p>
+<h3 id='required-parameters'>Required Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -635,14 +823,14 @@ You must replace <code>[api_token]</code> with your personal API key.
 <td>No</td>
 <td>Your internal reference for a project e.g. &#39;RA01&#39;</td>
 </tr>
+<tr>
+<td>fields_attributes</td>
+<td>Object</td>
+<td>No</td>
+<td>More information available <a href="#for-project-creation">here</a></td>
+</tr>
 </tbody></table>
-
-<p>In order to set further details we need a reference to which fields you would like to set a value for, these can differ for each company if you are using custom templates. You can find these references with our <code>fields</code> endpoint.</p>
-
-<aside class="notice">
-Remember — ensure that values for that field correspond to their <code>data_type</code>
-</aside>
-<h3 id='response'>Response</h3>
+<h3 id='response-3'>Response</h3>
 <p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
 
 <blockquote>
@@ -650,29 +838,224 @@ Remember — ensure that values for that field correspond to their <code>data_ty
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Project"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
           </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"My field value"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"fieldset"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='fields'>Fields</h1><h2 id='retrieving-current-fields'>Retrieving current fields</h2>
-<p>HandsHQ projects are created with a number of fields which can change depending on which template you are currently using. In order to find out information on which fields you are using you can use this endpoint.</p>
-<pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/fields <span class="se">\</span>
+</span></code></pre><h2 id='updating-a-project'>Updating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request PATCH <span class="se">\</span>
+  -d <span class="s2">"[json_payload]"</span>
+</code></pre>
+<blockquote>
+<p>Example Project update payload.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"248"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint allows you to create a project for the company who is registered with the api key you provide.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PATCH https://api.handshq.com/v1/projects/#{project_id}</code></p>
+<h3 id='allowed-project-parameters-2'>Allowed Project Parameters</h3>
+<p>All parameters must be nested within <code>project</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Name of your project, used for document titles, names of PDF documents etc.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>DateTime</td>
+<td>No</td>
+<td>To denote when your project starts, used in conjunction with <code>end_time</code> to denote whether project is still active.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>DateTime</td>
+<td>No</td>
+<td>To denote when your project ends, used in conjunction with <code>start_time</code> to denote whether project is still active.</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>String</td>
+<td>No</td>
+<td>Your internal reference for a project e.g. &#39;RA01&#39;</td>
+</tr>
+<tr>
+<td>fields_attributes</td>
+<td>Object</td>
+<td>No</td>
+<td>More information available <a href="#for-project-updates">here</a></td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<p>Successful requests will return a json payload of the project that was updated and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>201</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"fieldset"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='fields'>Fields</h1><h2 id='introduction-to-fields'>Introduction To Fields</h2>
+<p>While all <code>projects</code> within HandsHQ have the attributes of <code>name</code>, <code>reference</code>, <code>start_date</code>, <code>end_date</code>, projects may also have a number of associated <code>fields</code> that are used to describe more specific pieces of information relating to that <code>project</code>.</p>
+
+<p>In order to create <code>projects</code>, every <code>division</code> is assigned the use of a <code>template</code> to determine how such <code>projects</code> should be constructed.</p>
+
+<p>By default all <code>divisions</code> will use the standard HandsHQ <code>template</code> which contains <code>fields</code> such as &quot;Location of Works&quot;, &quot;Address Line 1&quot; etc.
+When a division is using the custom <code>templates</code> feature however, a <code>division</code> will have a far more specific set of fields more appropriate for the types of projects they are undertaking.</p>
+
+<aside class="notice" >
+Please contact our customer success team for more information on the custom templates feature.
+</aside>
+
+<p>Within each <code>template</code> (and later each <code>project</code>), <code>fields</code> are organised into a group called a <code>fieldset</code> which might look something like this within the app when editing a <code>project</code>.</p>
+
+<ul>
+<li>Location (<code>fieldset</code>)
+
+<ul>
+<li>Location of Works (<code>field</code>)</li>
+<li>Address line 1 (<code>field</code>)</li>
+<li>Address line 2 (<code>field</code>)</li>
+</ul></li>
+</ul>
+
+<p>Whenever a new <code>project</code> is created, this structure is used to generate a set of new <code>fields</code> specific to that <code>project</code> which will have the same names, data types, order and behaviour.</p>
+<h2 id='fields-index'>Fields Index</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/fields <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span>  <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
-</code></pre><h3 id='http-request'>HTTP Request</h3>
+</code></pre><h3 id='description'>Description</h3>
+<p>Collection of <code>fields</code> from your <code>division</code>&#39;s applied <code>template</code>, the details of these <code>fields</code> are copied to the new fields which are generated for every new <code>project</code> using that template.</p>
+<h3 id='url'>URL</h3>
 <p><code>GET https://api.handshq.com/v1/fields</code></p>
-<h3 id='response'>Response</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h3 id='params'>Params</h3>
+<p>None.</p>
+
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
@@ -739,14 +1122,12 @@ Remember — ensure that values for that field correspond to their <code>data_ty
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>You retrieve an ordered list of fields which you are currently using for your project document information and formatting.</p>
-<h3 id='fields-information'>Fields information</h3>
+</span></code></pre><h3 id='attribute-descriptions'>Attribute descriptions</h3>
 <ul>
 <li><code>label</code> - Label on project forms and end documents, e.g. &#39;Address 1&#39;</li>
-<li><code>required</code> - Whether or not the field is required for project creation.</li>
-<li><code>value</code> - The default value that will be immediately be applied to fields.</li>
-<li><code>data_type</code> - How the value of the field will be stored and the type of field provided to the user for editing. Will one of the following:
+<li><code>required</code> - Whether or not the field is required when saving a project.</li>
+<li><code>value</code> - The default value that will be immediately be applied to fields which are being derived from it. e.g. &#39;1600 Pennsylvania Avenue`</li>
+<li><code>data_type</code> - How the value of the field will be stored and the type of field provided to the user for editing. Will be one of the following:
 
 <ul>
 <li><code>string</code></li>
@@ -755,9 +1136,90 @@ Remember — ensure that values for that field correspond to their <code>data_ty
 </ul></li>
 </ul>
 
-<aside class="notice">
+<aside class="success">
 Fieldset information will be provided as well as fields, these describe the group that the field belongs to, for example <code>Address 1</code> and <code>Address 2</code> might be within the <code>Location</code> fieldset.
 </aside>
+<h2 id='assigning-field-values-to-projects'>Assigning field values to Projects</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="err">other</span><span class="w"> </span><span class="err">project</span><span class="w"> </span><span class="err">attributes</span><span class="w">
+    </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"field_id_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"field_id_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value 3"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>In both creating and update, the values of these fields can be set when provided within <code>project</code> portion of the body under the key of <code>fields_attributes</code>.</p>
+
+<p>In all cases, rather than having to provide details of which <code>fieldset</code> the <code>field</code> is a part of, a mapping of <code>field_id</code> to <code>field_value</code> is used, the value of the <code>id</code> is behaviourally different for creation and updating (see below).</p>
+<h2 id='for-project-creation'>For Project creation</h2>
+<p>The <code>fields</code> for a <code>project</code> are generated during the <code>project</code> creation process, therefore in order to immediately provide a non-default value for these <code>fields</code> you must instead provide a mapping between the <code>template</code> <code>field</code> and the value that you wish to assign.</p>
+
+<p>An example workflow for creating a <code>project</code> immediate values within it&#39;s <code>fields</code> might look like the following:</p>
+
+<p>1) Retrieve details of your current <code>template</code>&#39;s <code>fields</code> (<code>IDs</code>, default values, whether or not they are required etc) <code>GET https://api.handshq.com/v1/fields</code></p>
+
+<p>2) Map the <code>template</code> <code>field</code> <code>IDs</code> with the values you wish to assign to the <code>fields</code> for that <code>project</code></p>
+
+<blockquote>
+<p>Arranged field attributes example where the IDS of &quot;5&quot;, &quot;6&quot;, &quot;7&quot; were found from /fields and a value was provided for each.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"5"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Location of works"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"7"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 2"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>3) Include these attributes as part of the body when sending to <code>POST https://api.handshq.com/v1/projects</code></p>
+
+<blockquote>
+<p>Project creation example with custom fields being included, the response will include any fields that were created for this project - including those that were sent as part of this request. See FAQ for further details.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project with custom field values"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CustomFields1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"5"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Location of works"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"6"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"7"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 2"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Note that the ids of the fields for the project returned in the payload will not be &quot;5&quot;, &quot;6&quot;, &quot;7&quot; (the ids of the template fields), instead a new field is created and will be assigned an appropriate id.</p>
+</blockquote>
+<h2 id='for-project-updates'>For Project updates</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"123"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Location of works"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"456"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"789"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My value for Address line 2"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The same shape of <code>field_id: field_value</code> is used within <code>fields_attributes</code>.</p>
+
+<p>The difference for <code>Project#update</code> being that the <code>field_id</code> would be the ID that already exists on the project rather than the ID of the <code>template</code> <code>field</code>.</p>
+
+<p>The IDs of these fields are returned when a project is created and from certain other endpoints such as those returned back from <code>GET /projects</code>.</p>
+<h2 id='faq'>FAQ</h2>
+<aside>Do I need to provide field attributes when creating projects for them to be created?</aside>
+
+<p>No, you do not not need to provide the <code>field_attributes</code> in order for them to be generated, they are created by default for each new project, by providing them in <code>field_attributes</code> you are however able to immediately provide a value. For every template field that is omitted, a new field is still generated for the project, with its default value being assigned to that new field.</p>
+
+<aside>Do I need to provide the IDs in a specific order?</aside>
+
+<p>Where &quot;Location&quot; is the fieldset that contains multiple fields within it, it is worth noting that you do <em>not</em> have to provide details on the fieldsets when creating or updating projects, you only have to provided the <code>id</code> =&gt; <code>value</code> of all fields in a flat collection. The fieldset to which they are assigned and the order of fields as they appear in the document are still determined by the template that you are using, please contact our support team for more information on how this can be customised.</p>
+
+<aside>Are there any considerations for what values to provide?</aside>
+
+<p>Yes, some fields might be marked as <code>required</code> for your current template, if this is the case - if you do not provide a value or one that is deemened valid it will not allow the project to be created/updated.
+Also, field values must correspond to their specific data type (e.g. dates).</p>
+
+<p>Both of these pieces of information can be found as part of the <code>/fields</code> payload.</p>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Example 401 response:</p>
