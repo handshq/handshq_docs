@@ -271,9 +271,6 @@
                     <a href="#viewing-projects" class="toc-h2 toc-link" data-title="Viewing projects">Viewing projects</a>
                   </li>
                   <li>
-                    <a href="#viewing-projects-by-project-reference" class="toc-h2 toc-link" data-title="Viewing projects by project reference">Viewing projects by project reference</a>
-                  </li>
-                  <li>
                     <a href="#creating-a-project" class="toc-h2 toc-link" data-title="Creating a project">Creating a project</a>
                   </li>
                   <li>
@@ -704,12 +701,6 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span>
 </code></pre>
-<p>This endpoint allows you to view projects for the company who is registered with the API token you provide.</p>
-<h3 id='request'>Request</h3>
-<p><code>GET https://api.handshq.com/v1/projects</code></p>
-<h3 id='response'>Response</h3>
-<p>Successful requests will return a json payload of that division&#39;s projects and a <code>200</code> status code.</p>
-
 <blockquote>
 <p>200</p>
 </blockquote>
@@ -787,13 +778,10 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='viewing-projects-by-project-reference'>Viewing projects by project reference</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects?reference<span class="o">=</span><span class="c">#{project_reference} \</span>
-  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: bearer [api_token]"</span>
-</code></pre>
-<p>Adding a reference to the query string will return all projects for that company that match that project reference.</p>
-<h3 id='request-2'>Request</h3>
-<p><code>GET https://api.handshq.com/v1/projects?reference=#{project_reference}</code></p>
+</span></code></pre>
+<p>This endpoint allows you to view projects for the company who is registered with the API token you provide.</p>
+<h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects</code></p>
 <h3 id='allowed-query-parameters'>Allowed Query Parameters</h3>
 <table><thead>
 <tr>
@@ -807,55 +795,18 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
 <td>reference</td>
 <td>String</td>
 <td>No</td>
-<td>The project reference</td>
+<td>Only projects with a matching reference will be returned</td>
+</tr>
+<tr>
+<td>with_fields</td>
+<td>Boolean</td>
+<td>No</td>
+<td>If set to true will include the fields of projects in the <code>included</code> section of the response, see the <a href="#fields-index">fields index</a> endpoint for an example of the attributes on fields.</td>
 </tr>
 </tbody></table>
-<h3 id='response-2'>Response</h3>
-<p>Successful requests will return a json payload of that division&#39;s projects that match the project reference and a <code>200</code> status code.</p>
-
-<blockquote>
-<p>200</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1234"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of that division&#39;s projects and a <code>200</code> status code.</p>
+<h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -880,7 +831,7 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
 
 </span></code></pre>
 <p>This endpoint allows you to create a project for the company who is registered with the API token you provide.</p>
-<h3 id='request-3'>Request</h3>
+<h3 id='request-2'>Request</h3>
 <p><code>POST https://api.handshq.com/v1/projects</code></p>
 <h3 id='required-parameters'>Required Parameters</h3>
 <table><thead>
@@ -940,7 +891,7 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
 <td>More information available <a href="#for-project-creation">here</a></td>
 </tr>
 </tbody></table>
-<h3 id='response-3'>Response</h3>
+<h3 id='response-2'>Response</h3>
 <p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
 
 <blockquote>
@@ -964,7 +915,6 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
           </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"fields"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
@@ -978,7 +928,7 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"included"</span><span class="p">:[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
@@ -1024,7 +974,7 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
 
 </span></code></pre>
 <p>This endpoint allows you to update a project for the company who is registered with the API token you provide.</p>
-<h3 id='request-4'>Request</h3>
+<h3 id='request-3'>Request</h3>
 <p><code>PATCH https://api.handshq.com/v1/projects/#{project_id}</code></p>
 <h3 id='allowed-project-parameters-2'>Allowed Project Parameters</h3>
 <p>All parameters must be nested within <code>project</code></p>
@@ -1068,11 +1018,11 @@ You must replace <code>[api_token]</code> with your HandsHQ API token and please
 <td>More information available <a href="#for-project-updates">here</a></td>
 </tr>
 </tbody></table>
-<h3 id='response-4'>Response</h3>
+<h3 id='response-3'>Response</h3>
 <p>Successful requests will return a json payload of the project that was updated and a <code>200</code> status code.</p>
 
 <blockquote>
-<p>201</p>
+<p>200</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
