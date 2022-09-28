@@ -266,6 +266,21 @@
                     <a href="#version-pdf-created" class="toc-h2 toc-link" data-title="Version PDF Created">Version PDF Created</a>
                   </li>
                   <li>
+                    <a href="#project-archived" class="toc-h2 toc-link" data-title="Project Archived">Project Archived</a>
+                  </li>
+                  <li>
+                    <a href="#project-unarchived" class="toc-h2 toc-link" data-title="Project Unarchived">Project Unarchived</a>
+                  </li>
+                  <li>
+                    <a href="#personnel-assignment-created" class="toc-h2 toc-link" data-title="Personnel Assignment Created">Personnel Assignment Created</a>
+                  </li>
+                  <li>
+                    <a href="#personnel-assignment-updated" class="toc-h2 toc-link" data-title="Personnel Assignment Updated">Personnel Assignment Updated</a>
+                  </li>
+                  <li>
+                    <a href="#personnel-assignment-deleted" class="toc-h2 toc-link" data-title="Personnel Assignment Deleted">Personnel Assignment Deleted</a>
+                  </li>
+                  <li>
                     <a href="#role-created" class="toc-h2 toc-link" data-title="Role Created">Role Created</a>
                   </li>
                   <li>
@@ -301,10 +316,36 @@
                     <a href="#viewing-projects" class="toc-h2 toc-link" data-title="Viewing projects">Viewing projects</a>
                   </li>
                   <li>
+                    <a href="#viewing-a-specific-project" class="toc-h2 toc-link" data-title="Viewing a specific project">Viewing a specific project</a>
+                  </li>
+                  <li>
                     <a href="#creating-a-project" class="toc-h2 toc-link" data-title="Creating a project">Creating a project</a>
                   </li>
                   <li>
                     <a href="#updating-a-project" class="toc-h2 toc-link" data-title="Updating a project">Updating a project</a>
+                  </li>
+                  <li>
+                    <a href="#archiving-projects" class="toc-h2 toc-link" data-title="Archiving projects">Archiving projects</a>
+                  </li>
+                  <li>
+                    <a href="#unarchiving-projects" class="toc-h2 toc-link" data-title="Unarchiving projects">Unarchiving projects</a>
+                  </li>
+                  <li>
+                    <a href="#duplicating-a-project" class="toc-h2 toc-link" data-title="Duplicating a project">Duplicating a project</a>
+                  </li>
+                  <li>
+                    <a href="#viewing-project-duplication-process" class="toc-h2 toc-link" data-title="Viewing project duplication process">Viewing project duplication process</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#version-pdfs" class="toc-h1 toc-link" data-title="Version PDFs">Version PDFs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#viewing-a-specific-version-pdf" class="toc-h2 toc-link" data-title="Viewing a specific version pdf">Viewing a specific version pdf</a>
+                  </li>
+                  <li>
+                    <a href="#viewing-latest-version-pdf-for-a-project" class="toc-h2 toc-link" data-title="Viewing latest version pdf for a project">Viewing latest version pdf for a project</a>
                   </li>
               </ul>
           </li>
@@ -385,6 +426,37 @@
                   </li>
                   <li>
                     <a href="#removing-a-role-from-a-personnel" class="toc-h2 toc-link" data-title="Removing a role from a personnel">Removing a role from a personnel</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#personnel-assignments" class="toc-h1 toc-link" data-title="Personnel Assignments">Personnel Assignments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#viewing-personnel-assignments-for-a-project" class="toc-h2 toc-link" data-title="Viewing personnel assignments for a project">Viewing personnel assignments for a project</a>
+                  </li>
+                  <li>
+                    <a href="#viewing-a-personnel-assignment" class="toc-h2 toc-link" data-title="Viewing a personnel assignment">Viewing a personnel assignment</a>
+                  </li>
+                  <li>
+                    <a href="#creating-a-personnel-assignment" class="toc-h2 toc-link" data-title="Creating a personnel assignment">Creating a personnel assignment</a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-personnel-assignment" class="toc-h2 toc-link" data-title="Updating a personnel assignment">Updating a personnel assignment</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-personnel-assignment" class="toc-h2 toc-link" data-title="Deleting a personnel assignment">Deleting a personnel assignment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#latest-document-reviews" class="toc-h1 toc-link" data-title="Latest Document Reviews">Latest Document Reviews</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#viewing-latest-document-reviews-for-a-project" class="toc-h2 toc-link" data-title="Viewing latest document reviews for a project">Viewing latest document reviews for a project</a>
+                  </li>
+                  <li>
+                    <a href="#viewing-latest-document-review-for-a-personnel-on-a-project" class="toc-h2 toc-link" data-title="Viewing latest document review for a personnel on a project">Viewing latest document review for a personnel on a project</a>
                   </li>
               </ul>
           </li>
@@ -619,6 +691,11 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <h3 id='rams'>RAMS</h3>
 <ul>
 <li><code>version_pdf_created</code> - this is fired after we have generated and stored a project version PDF, which is now ready to be downloaded. Please note that the event is scoped to look for subscriptions which were created by the same division that the project belongs to.</li>
+<li><code>project_archived</code> - this is fired after a project is archived (via the HandsHQ app or via the API).</li>
+<li><code>project_unarchived</code> - this is fired after a project is unarchived (via the HandsHQ app or via the API).</li>
+<li><code>personnel_assignment_created</code> - this is fired after a personnel has been added to a project (via the HandsHQ app or via the API).</li>
+<li><code>personnel_assignment_updated</code> - this is fired after a personnel has been updated on a project (via the HandsHQ app or via the API).</li>
+<li><code>personnel_assignment_deleted</code> - this is fired after a personnel has been removed from a project (via the HandsHQ app or via the API).</li>
 </ul>
 <h3 id='training-register'>Training Register</h3>
 <p> The below events are available to customers with Training Register </p>
@@ -732,6 +809,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -837,6 +920,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 
 <ul>
 <li>Included description of the latest change</li>
+<li>The reason will identify why the version was created</li>
 </ul></li>
 <li><p>The <code>Version</code> of a <code>Project</code> which had been generated into a PDF</p>
 
@@ -851,6 +935,181 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
   <li>The URL of the PDF (as described in "links" => "content") is only valid for 48 hours.</li>
   <li>This event may fire on occasion for the same version, in cases where a PDF is being regenerated (e.g. in the case of digital signatures)</li>
 </aside>
+<h2 id='project-archived'>Project Archived</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">}]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_archived"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-2'>Data:</h3>
+<ul>
+<li>The attributes of the project, along with IDs of the project&#39;s user (author) and fields.</li>
+</ul>
+<h2 id='project-unarchived'>Project Unarchived</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">}]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_unarchived"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-3'>Data:</h3>
+<ul>
+<li>The attributes of the project, along with IDs of the project&#39;s user (author) and fields.</li>
+</ul>
+<h2 id='personnel-assignment-created'>Personnel Assignment Created</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="s2">"personnel_assignment_created"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-4'>Data:</h3>
+<ul>
+<li>The attributes of the personnel assignment, along with IDs of the assignment&#39;s personnel, project and role.</li>
+</ul>
+<h2 id='personnel-assignment-updated'>Personnel Assignment Updated</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="s2">"personnel_assignment_updated"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-5'>Data:</h3>
+<ul>
+<li>The attributes of the personnel assignment, along with IDs of the assignment&#39;s personnel, project and role.</li>
+</ul>
+<h2 id='personnel-assignment-deleted'>Personnel Assignment Deleted</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"event_type"</span><span class="p">:</span><span class="s2">"personnel_assignment_deleted"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='data-6'>Data:</h3>
+<ul>
+<li>The attributes of the personnel assignment, along with IDs of the assignment&#39;s personnel, project and role.</li>
+</ul>
 <h2 id='role-created'>Role Created</h2><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
@@ -863,7 +1122,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role_created"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-2'>Data:</h3>
+</span></code></pre><h3 id='data-7'>Data:</h3>
 <ul>
 <li>The role that has been created.</li>
 </ul>
@@ -879,7 +1138,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role_updated"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-3'>Data:</h3>
+</span></code></pre><h3 id='data-8'>Data:</h3>
 <ul>
 <li>The role that has been updated.</li>
 </ul>
@@ -895,7 +1154,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role_deleted"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-4'>Data:</h3>
+</span></code></pre><h3 id='data-9'>Data:</h3>
 <ul>
 <li>The role that has been deleted.</li>
 </ul>
@@ -935,7 +1194,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_created"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-5'>Data:</h3>
+</span></code></pre><h3 id='data-10'>Data:</h3>
 <ul>
 <li>The personnel that has been created, along with IDs of the personnel&#39;s line manager and associated roles.</li>
 </ul>
@@ -975,7 +1234,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_updated"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-6'>Data:</h3>
+</span></code></pre><h3 id='data-11'>Data:</h3>
 <ul>
 <li>The personnel that has been updated, along with IDs of the personnel&#39;s line manager and associated roles.</li>
 </ul>
@@ -1015,7 +1274,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_deleted"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-7'>Data:</h3>
+</span></code></pre><h3 id='data-12'>Data:</h3>
 <ul>
 <li>The personnel that has been deleted, along with IDs of the personnel&#39;s line manager and associated roles.</li>
 </ul>
@@ -1055,7 +1314,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_archived"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-8'>Data:</h3>
+</span></code></pre><h3 id='data-13'>Data:</h3>
 <ul>
 <li>The personnel that has been archived, along with IDs of the personnel&#39;s line manager and associated roles.</li>
 </ul>
@@ -1095,7 +1354,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"event_type"</span><span class="p">:</span><span class="s2">"personnel_unarchived"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-9'>Data:</h3>
+</span></code></pre><h3 id='data-14'>Data:</h3>
 <ul>
 <li>The personnel that has been unarchived, along with IDs of the personnel&#39;s line manager and associated roles.</li>
 </ul>
@@ -1138,7 +1397,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"eventType"</span><span class="p">:</span><span class="s2">"training_status_changed"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='data-10'>Data:</h3>
+</span></code></pre><h3 id='data-15'>Data:</h3>
 <ul>
 <li>A collection of the training statuses that have changed as the result of an action taken via API or via the App.</li>
 <li>A list of possible statuses and their status descriptions:
@@ -1264,11 +1523,84 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>No</td>
 <td>If set to true will include the fields of projects in the <code>included</code> section of the response, see the <a href="#fields-index">fields index</a> endpoint for an example of the attributes on fields.</td>
 </tr>
+<tr>
+<td>archived_status</td>
+<td>String</td>
+<td>No</td>
+<td>Returns only archived projects if set to &#39;archived&#39;, unarchived projects if set to &#39;unarchived&#39;, and all projects if set to &#39;all&#39;. When no query parameter is specified, the entire collection will be returned.</td>
+</tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
 <p>Successful requests will return a json payload of that division&#39;s projects and a <code>200</code> status code.
 Results in <code>data</code> are <a href="#pagination">paginated</a></p>
-<h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
+<h2 id='viewing-a-specific-project'>Viewing a specific project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view a specific project for the division that is registered with the API token you provide.</p>
+<h3 id='request-2'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]</code></p>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a json payload of the project a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"fieldset"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='creating-a-project'>Creating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1293,7 +1625,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 
 </span></code></pre>
 <p>This endpoint allows you to create a project for the division who is registered with the API token you provide.</p>
-<h3 id='request-2'>Request</h3>
+<h3 id='request-3'>Request</h3>
 <p><code>POST https://api.handshq.com/v1/projects</code></p>
 <h3 id='required-parameters'>Required Parameters</h3>
 <table><thead>
@@ -1353,7 +1685,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>More information available <a href="#for-project-creation">here</a></td>
 </tr>
 </tbody></table>
-<h3 id='response-2'>Response</h3>
+<h3 id='response-3'>Response</h3>
 <p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
 
 <blockquote>
@@ -1436,8 +1768,8 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 
 </span></code></pre>
 <p>This endpoint allows you to update a project for the division who is registered with the API token you provide.</p>
-<h3 id='request-3'>Request</h3>
-<p><code>PATCH https://api.handshq.com/v1/projects/#{project_id}</code></p>
+<h3 id='request-4'>Request</h3>
+<p><code>PATCH https://api.handshq.com/v1/projects/[project_id]</code></p>
 <h3 id='allowed-project-parameters-2'>Allowed Project Parameters</h3>
 <p>All parameters must be nested within <code>project</code></p>
 
@@ -1480,7 +1812,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>More information available <a href="#for-project-updates">here</a></td>
 </tr>
 </tbody></table>
-<h3 id='response-3'>Response</h3>
+<h3 id='response-4'>Response</h3>
 <p>Successful requests will return a json payload of the project that was updated and a <code>200</code> status code.</p>
 
 <blockquote>
@@ -1539,6 +1871,525 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='archiving-projects'>Archiving projects</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/archive <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request PATCH
+</code></pre>
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to archive a project within the division that is registered with the API token you provide.</p>
+<h3 id='request-5'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/archive</code></p>
+<h3 id='response-5'>Response</h3>
+<p>Successful requests will return a json payload of the archived project and a <code>200</code> status code.</p>
+
+<p>A 404 will be returned if you try to archive a project that has already been archived.</p>
+<h2 id='unarchiving-projects'>Unarchiving projects</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/unarchive <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request PATCH
+</code></pre>
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to unarchive a project within the division that is registered with the API token you provide.</p>
+<h3 id='request-6'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/unarchive</code></p>
+<h3 id='response-6'>Response</h3>
+<p>Successful requests will return a json payload of the archived project and a <code>200</code> status code.</p>
+
+<p>A 404 will be returned if you try to unarchive a project that has not already been archived.</p>
+<h2 id='duplicating-a-project'>Duplicating a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[id]/duplications <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request POST <span class="se">\</span>
+  -d <span class="s1">'[json_payload]'</span>
+</code></pre>
+<blockquote>
+<p>Example Project duplicated payload.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My duplicated project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint allows you to duplicate a project that exists within the division that is registered with the API token you provide.</p>
+
+<p>The project is duplicated asynchronously, so will not be available at this point. Successful requests will return a json payload detailing the duplication process and a <code>201</code> status code.  The duplication process information provides the id of the duplication process, the time that the duplication was requested and the current status of the duplication process - queued, in progress, complete or failed.</p>
+
+<p>If you wish to access the status of the duplication process, and check if the duplicated project and version pdf has been generated, you can use the duplication process id to poll for the current status of the duplication process - further information <a href="#viewing-project-duplication-process">here</a></p>
+
+<p>You can also be notified when a version pdf has been generated through our version_pdf_created webhook. The payload will contain the reason that the version pdf was generated and will identify whether it was a result of a project duplication.</p>
+<h3 id='request-7'>Request</h3>
+<p><code>POST https://api.handshq.com/v1/projects/[id]/duplications</code></p>
+<h3 id='required-parameters-2'>Required Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_email</td>
+<td>String</td>
+<td>Yes</td>
+<td>The email of the HandsHQ user who will be marked as the author of the project</td>
+</tr>
+</tbody></table>
+<h3 id='allowed-project-parameters-3'>Allowed Project Parameters</h3>
+<p>All parameters must be nested within <code>project</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>No</td>
+<td>Name of your duplicated project, used for document titles, names of PDF documents etc. If not provided, this will default to the name of the original project suffixed with Copy.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Date</td>
+<td>No</td>
+<td>To denote when your project starts, used in conjunction with <code>end_date</code> to denote whether project is still active.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Date</td>
+<td>No</td>
+<td>To denote when your project ends, used in conjunction with <code>start_date</code> to denote whether project is still active.</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>String</td>
+<td>No</td>
+<td>Your internal reference for a project e.g. &#39;RA01&#39;</td>
+</tr>
+<tr>
+<td>fields_attributes</td>
+<td>Object</td>
+<td>No</td>
+<td>More information available <a href="#for-project-creation">here</a></td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<p>Successful requests will return a json payload of the project duplication process and a 201 status code.</p>
+
+<blockquote>
+<p>201</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0654478193284b93844884632ed5ff32"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_duplication"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requested_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"original_project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original_project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='viewing-project-duplication-process'>Viewing project duplication process</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/project_duplications/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the duplication process of a project, by polling us with the id returned from duplicating the project. You can view the duplication process of projects within the division that is registered with the API token you provide.</p>
+
+<p>The duplication process can have the following statuses: &quot;queued&quot;, &quot;in_progress&quot;, &quot;complete&quot; and &quot;failed&quot;. We recommend you poll this endpoint no more than twice a minute.</p>
+
+<p>If the status is complete, it means the duplicated project has been generated as well as the corresponding version pdf for that duplicated project.</p>
+
+<p>If the duplication status has failed, this could mean either the duplication of the project has failed, or the project duplication was a success and the version pdf generation failed. You can determine the cause of the failure within the relationships of the response. If an id exists for the project and not the version pdf, the duplication was successful and the pdf generation failed. If neither project nor version pdf id exist, the project duplication failed.</p>
+
+<p>If the version pdf takes longer than 10 minutes to generate, the duplication process is considered a failure - although the project will have been duplicated.</p>
+<h3 id='request-8'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/project_duplications/[id]</code></p>
+<h3 id='response-8'>Response</h3>
+<p>Successful requests will return a json payload of the project duplication process and a <code>200</code> status code.</p>
+
+<p>Once the duplication process is complete, you can access the project and version that was generated using the project id and version pdf id returned in the response, along with the following endpoints - <a href="#viewing-a-specific-project">viewing a specific project</a> &amp; <a href="#viewing-a-specific-version-pdf">viewing a specific version pdf</a></p>
+
+<blockquote>
+<p>200</p>
+
+<p>Queued:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f38aadd81a124b2ab14695e88629f4b8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_duplication"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queued"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requested_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"original_project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original_project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>In Progress:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f38aadd81a124b2ab14695e88629f4b8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_duplication"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_progress"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requested_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"original_project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original_project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Complete:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f38aadd81a124b2ab14695e88629f4b8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_duplication"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"complete"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requested_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"original_project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original_project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Failed:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f38aadd81a124b2ab14695e88629f4b8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project_duplication"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requested_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"original_project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"original_project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='version-pdfs'>Version PDFs</h1>
+<p>A version pdf is a pdf representation of the current version of the project. As a project changes over time, different versions are generated, and these versions can have pdf representations.</p>
+<h2 id='viewing-a-specific-version-pdf'>Viewing a specific version pdf</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/version_pdfs/[version_pdf_id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the version pdf that has been generated for a specific version of the project, within the division that is registered with the API token you provide.</p>
+
+<p>If, for example, you duplicate a project through the api, and the duplication process is complete, you can use the version pdf id provided in the response to retrieve the generated version pdf using this endpoint.</p>
+<h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/version_pdfs/[version_pdf_id]</code></p>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of the version pdf and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"version_pdf_url"</span><span class="p">:</span><span class="s2">"https://example.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='viewing-latest-version-pdf-for-a-project'>Viewing latest version pdf for a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/latest_version_pdf <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the latest version pdf that has been generated for a project, within the division that is registered with the API token you provide.</p>
+
+<p>The project, history, version and latest reviewed version will be included in the response.</p>
+<h3 id='request-2'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/latest_version_pdf</code></p>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a json payload of the latest version pdf and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"version_pdf_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.pdf"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"is_fully_signed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pdf_filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example-project.pdf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"display_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"version_pdf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"version_pdf"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"history"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Katie M. edited the project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"displayNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"generic"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-08-10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='fields'>Fields</h1><h2 id='introduction-to-fields'>Introduction To Fields</h2>
 <p>While all <code>projects</code> within HandsHQ have the attributes of <code>name</code>, <code>reference</code>, <code>start_date</code>, <code>end_date</code>, projects may also have a number of associated <code>fields</code> that are used to describe more specific pieces of information relating to that <code>project</code>.</p>
 
@@ -2478,7 +3329,496 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <p><code>DELETE https://api.handshq.com/v1/personnel_roles/[id]</code></p>
 <h3 id='response-2'>Response</h3>
 <p>Successful requests will return a <code>204</code> status code</p>
-<h1 id='pagination'>Pagination</h1><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h1 id='personnel-assignments'>Personnel Assignments</h1>
+<p>When personnel are added to projects, the relationship between the personnel and project is referred to as a personnel assignment.</p>
+
+<p>You can interact with this relationship through the personnel assignment id, or the id of the project along with the id of the personnel that was added to the project.</p>
+<h2 id='viewing-personnel-assignments-for-a-project'>Viewing personnel assignments for a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel_assignments <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the personnel assignments that exist for a project, within the division that is registered with the API token you provide.</p>
+<h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/personnel_assignments</code></p>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of the personnel assignments and a <code>200</code> status code.</p>
+
+<p>Results in <code>data</code> are <a href="#pagination">paginated</a></p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"requested_page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='viewing-a-personnel-assignment'>Viewing a personnel assignment</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel_assignments/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view a personnel assignment for the division that is registered with the API token you provide. You can either view the assignment by providing the personnel assignment id, or the project id and personnel id.</p>
+<h3 id='request-2'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/personnel_assignments/[id]</code></p>
+
+<p>OR</p>
+
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment</code></p>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a json payload of the personnel assignment and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='creating-a-personnel-assignment'>Creating a personnel assignment</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request POST <span class="se">\</span>
+  -d <span class="s1">'[json_payload]'</span>
+</code></pre>
+<blockquote>
+<p>Example Personnel Assignment update payload.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"personnel_assignment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to add a personnel to a project within the division that is registered with the API token you provide. You have the option to determine the role of the personnel on the project, by providing the id of the role. This role must have already been assigned to the personnel.</p>
+
+<p>Once a personnel is added to a project, if reviews have been requested for that project, a review will automatically be generated for that personnel. A user email must be provided along with this request, and this email will be used to identify the requester of the review.</p>
+<h3 id='request-3'>Request</h3>
+<p><code>POST https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment</code></p>
+<h3 id='required-parameters'>Required Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_email</td>
+<td>String</td>
+<td>Yes</td>
+<td>The email of the HandsHQ user who will be marked as the requester of the generated review.</td>
+</tr>
+</tbody></table>
+<h3 id='allowed-parameters'>Allowed Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role_id</td>
+<td>String</td>
+<td>No</td>
+<td>The id of the role the personnel should have on project. The personnel must already have this role.</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<p>Successful requests will return a json payload of the personnel assignment and a <code>201</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='updating-a-personnel-assignment'>Updating a personnel assignment</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel_assignments/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request PATCH <span class="se">\</span>
+  -d <span class="s1">'[json_payload]'</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  --request PATCH <span class="se">\</span>
+  -d <span class="s1">'[json_payload]'</span>
+</code></pre>
+<blockquote>
+<p>Example Personnel Assignment update payload.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"personnel_assignment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to update a personnel on a project for the division that is registered with the API token you provide. You can either update the assignment by providing the personnel assignment id, or the project id and personnel id.</p>
+<h3 id='request-4'>Request</h3>
+<p><code>PATCH https://api.handshq.com/v1/personnel_assignments/[id]</code></p>
+
+<p>OR</p>
+
+<p><code>PATCH https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment</code></p>
+<h3 id='allowed-personnel-assignment-parameters'>Allowed Personnel Assignment Parameters</h3>
+<p>All parameters must be nested within <code>personnel_assignment</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>role_id</td>
+<td>String</td>
+<td>No</td>
+<td>ID of the role the personnel should have on the project. The personnel must already have this role.</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<p>Successful requests will return a json payload of the personnel assignment and a <code>200</code> status code.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='deleting-a-personnel-assignment'>Deleting a personnel assignment</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel_assignments/[id] <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request DELETE
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request DELETE
+</code></pre>
+<p>This endpoint allows you to remove a personnel from a project belonging to the division that is registered with the API token you provide. You can either remove the assignment by providing the personnel assignment id, or the project id and personnel id.</p>
+<h3 id='request-5'>Request</h3>
+<p><code>DELETE https://api.handshq.com/v1/personnel_assignments/[id]</code></p>
+
+<p>OR</p>
+
+<p><code>DELETE https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/assignment</code></p>
+<h3 id='response-5'>Response</h3>
+<p>Successful requests will return no content and a <code>204</code> status code.</p>
+
+<blockquote>
+<p>204</p>
+</blockquote>
+<h1 id='latest-document-reviews'>Latest Document Reviews</h1>
+<p>A version of a document can be reviewed by the personnel that have been assigned to that project.</p>
+
+<p>A personnel can review multiple versions of a document, and you can use this endpoint to access their review for the latest version of the document.</p>
+
+<p>Reviews will only be found once personnel have been added to the project and reviews have been requested for this version of the document. If you add a personnel to a project after reviews have been requested for that version of a document, a review will automatically be created.</p>
+
+<p>A review can have the state of requested, accepted or rejected. Reviews that have been accepted will have a corresponding signature.</p>
+<h2 id='viewing-latest-document-reviews-for-a-project'>Viewing latest document reviews for a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/latest_document_reviews <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the latest document reviews that exist for a project, within the division that is registered with the API token you provide.</p>
+
+<p>Personnel assignments and signatures will be included in the response, and the personnel the review was generated for can be determined through the personnel assignment relationships.</p>
+<h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/latest_document_reviews</code></p>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a json payload of the latest document reviews and a <code>200</code> status code. An empty collection indicates personnel have not yet been added to the project, or reviews have not yet been requested for this version of the document.</p>
+
+<p>Results in <code>data</code> are <a href="#pagination">paginated</a></p>
+
+<blockquote>
+<p>200</p>
+
+<p>Reviews have been requested</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"viewed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-01T00:00:00+00:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"personnel_assignment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signature"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"review_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://reviews/123abc"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signature"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"signature_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example-signature.png"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>No personnel have been added to project or reviews have not been requested</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='viewing-latest-document-review-for-a-personnel-on-a-project'>Viewing latest document review for a personnel on a project</h2><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel_assignments/[id]/latest_document_review <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/latest_document_review <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: bearer [api_token]"</span> <span class="se">\</span>
+  --request GET
+</code></pre>
+<p>This endpoint allows you to view the latest document review that exists for a personnel on a project, within the division that is registered with the API token you provide.</p>
+
+<p>Personnel assignments and signatures will be included in the response, and the personnel the review was generated for can be determined through the personnel assignment relationships.</p>
+
+<p>You can access the latest document review by providing the personnel assignment id, or the id of the project and personnel you wish to view the review for.</p>
+<h3 id='request-2'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/personnel_assignments/[id]/latest_document_review</code></p>
+
+<p>OR</p>
+
+<p><code>GET https://api.handshq.com/v1/projects/[project_id]/personnel/[personnel_id]/latest_document_review</code></p>
+<h3 id='response-2'>Response</h3>
+<p>Successful requests will return a json payload of the latest document review and a <code>200</code> status code.</p>
+
+<p>An empty object indicates reviews have not yet been requested for this version of the document.</p>
+
+<blockquote>
+<p>200</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"review"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"viewed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"signed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-01T00:00:00+00:00"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"personnel_assignment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signature"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"review_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://reviews/123abc"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel_assignment"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"personnel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"personnel"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signature"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"signature_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example-signature.png"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Reviews have not been requested for this version of the document</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='pagination'>Pagination</h1><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
