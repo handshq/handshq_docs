@@ -21,6 +21,7 @@ curl https://api.handshq.com/v1/personnel \
         "last_name": "Smith",
         "email": "john.smith@email.com",
         "archived_at": null,
+        "external_id": "JSMITH",
         "type": "employee",
         "training_status": {
           "status": "missing",
@@ -96,6 +97,7 @@ curl https://api.handshq.com/v1/personnel/[id] \
         "last_name": "Smith",
         "email": "john.smith@email.com",
         "archived_at": null,
+        "external_id": "JSMITH",
         "type": "employee",
         "training_status": {
           "status": "missing",
@@ -154,6 +156,7 @@ curl https://api.handshq.com/v1/personnel \
       "first_name": "Sandra",
       "last_name": "Smith",
       "email":"sandra.smith@email.com",
+      "external_id": "JSMITH",
       "line_manager_id": "456",
       "role_ids": ["987", "765"]
     }
@@ -192,6 +195,7 @@ Successful requests will return a json payload of the newly created personnel an
         "first_name": "Sandra",
         "last_name": "Smith",
         "email": "sandra.smith@email.com",
+        "external_id": "JSMITH",
         "archived_at": null,
         "type": "employee"
       },
@@ -238,6 +242,7 @@ curl https://api.handshq.com/v1/personnel/[id] \
       "first_name": "Sally",
       "last_name": "Smith-West",
       "email":"sally-sw@email.com",
+      "external_id": "JSMITH",
       "line_manager_id": "567",
       "role_ids": ["345"]
     }
@@ -277,6 +282,7 @@ Successful requests will return a json payload of the updated personnel and a `2
         "first_name": "Sally",
         "last_name": "Smith-West",
         "email": "sally-sw@email.com",
+        "external_id": "JSMITH",
         "archived_at": null,
         "type": "employee"
       },
@@ -354,6 +360,7 @@ Successful requests will return a json payload of the archived personnel and a `
         "first_name": "Sally",
         "last_name": "Smith-West",
         "email": "sally-sw@email.com",
+        "external_id": "JSMITH",
         "archived_at": "2022-04-27T17:30:18.835+01:00",
         "type": "employee"
       },
@@ -402,6 +409,7 @@ This endpoint allows you to unarchive an archived personnel.
         "first_name": "Sally",
         "last_name": "Smith-West",
         "email": "sally-sw@email.com",
+        "external_id": "JSMITH",
         "archived_at": null,
         "type": "employee"
       },
