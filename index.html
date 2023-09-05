@@ -2610,7 +2610,6 @@ Also, field values must correspond to their specific data type (e.g. dates).</p>
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@email.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"training_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"missing"</span><span class="p">,</span><span class="w">
@@ -2692,7 +2691,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@email.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"training_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"missing"</span><span class="p">,</span><span class="w">
@@ -2741,7 +2739,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sandra"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"sandra.smith@email.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"987"</span><span class="p">,</span><span class="w"> </span><span class="s2">"765"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2780,12 +2777,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>Email address of the personnel</td>
 </tr>
 <tr>
-<td>external_id</td>
-<td>String</td>
-<td>No</td>
-<td>External ID of the personnel</td>
-</tr>
-<tr>
 <td>line_manager_id</td>
 <td>String</td>
 <td>No</td>
@@ -2812,7 +2803,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
         </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sandra"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sandra.smith@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2853,7 +2843,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sally"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith-West"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"sally-sw@email.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"567"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"345"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2892,12 +2881,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>Email address of the personnel</td>
 </tr>
 <tr>
-<td>external_id</td>
-<td>String</td>
-<td>No</td>
-<td>External ID of the personnel</td>
-</tr>
-<tr>
 <td>line_manager_id</td>
 <td>String</td>
 <td>No</td>
@@ -2924,7 +2907,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
         </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sally"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith-West"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sally-sw@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -2987,7 +2969,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
         </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sally"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith-West"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sally-sw@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-04-27T17:30:18.835+01:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -3031,7 +3012,6 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
         </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sally"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith-West"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sally-sw@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employee"</span><span class="w">
       </span><span class="p">},</span><span class="w">
