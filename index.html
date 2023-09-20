@@ -2636,6 +2636,12 @@ Also, field values must correspond to their specific data type (e.g. dates).</p>
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -2716,6 +2722,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2743,7 +2755,8 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"sandra.smith@email.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"987"</span><span class="p">,</span><span class="w"> </span><span class="s2">"765"</span><span class="p">]</span><span class="w">
+      </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"987"</span><span class="p">,</span><span class="w"> </span><span class="s2">"765"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"primary_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2797,6 +2810,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>No</td>
 <td>IDs of roles that exist in the training register, that the personnel holds. For more information see <a href="#associations">Associations</a></td>
 </tr>
+<tr>
+<td>primary_role_id</td>
+<td>String</td>
+<td>No</td>
+<td>ID of the primary role of the personnel</td>
+</tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
 <p>Successful requests will return a json payload of the newly created personnel and a <code>201</code> status code</p>
@@ -2834,6 +2853,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2855,7 +2880,8 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"sally-sw@email.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"567"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"345"</span><span class="p">]</span><span class="w">
+      </span><span class="s2">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"345"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"primary_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2909,6 +2935,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>No</td>
 <td>IDs of roles that exist in the training register, that the personnel holds. For more information see <a href="#associations">Associations</a></td>
 </tr>
+<tr>
+<td>primary_role_id</td>
+<td>String</td>
+<td>No</td>
+<td>ID of the primary role of the personnel</td>
+</tr>
 </tbody></table>
 <h3 id='response-4'>Response</h3>
 <p>Successful requests will return a json payload of the updated personnel and a <code>200</code> status code</p>
@@ -2942,6 +2974,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3005,6 +3043,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3049,6 +3093,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
