@@ -12,7 +12,7 @@ curl https://api.handshq.com/v1/authentication \
 > In all subsequent examples make sure to replace `[api_token]` with your API token
 
 HandsHQ uses API tokens to allow access to the API. You can find your API token in the API tab of your settings page
-[here.](https://app.handshq.com/settings/api_configuration)
+[here.](https://app.handshq.com/settings/external_integration_configuration)
 
 
 HandsHQ expects for the API token to be included in all API requests to the server in a header that looks like the following:
