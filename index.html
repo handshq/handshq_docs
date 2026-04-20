@@ -384,6 +384,14 @@
               </ul>
           </li>
           <li>
+            <a href="#folders" class="toc-h1 toc-link" data-title="Folders">Folders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#viewing-your-folders" class="toc-h2 toc-link" data-title="Viewing your folders">Viewing your folders</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#personnel" class="toc-h1 toc-link" data-title="Personnel">Personnel</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1437,86 +1445,98 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>200</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
             </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1234"</span><span class="w">
+        </span><span class="nl">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project 2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC2"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+      </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1234"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5678"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Project 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-21"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_submitted"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
             </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/5678"</span><span class="w">
+        </span><span class="nl">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/5678"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to view projects for the division who is registered with the API token you provide.</p>
 <h3 id='request'>Request</h3>
@@ -1572,7 +1592,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Project"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1581,38 +1601,44 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"8"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"fields"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"included"</span><span class="p">:[</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"fieldset"</span><span class="p">:{</span><span class="w">
-          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1629,19 +1655,19 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>Example Project creation payload.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project with extra details"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My project with extra details"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"folder_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to create a project for the division who is registered with the API token you provide.</p>
 <h3 id='request-3'>Request</h3>
@@ -1703,6 +1729,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>No</td>
 <td>More information available <a href="#for-project-creation">here</a></td>
 </tr>
+<tr>
+<td>folder_id</td>
+<td>String</td>
+<td>No</td>
+<td>If your account has the folders feature, you can submit the id of the folder you would like the project to be placed in.</td>
+</tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
 <p>Successful requests will return a json payload of the project that was created and a <code>201</code> status code.</p>
@@ -1725,38 +1757,43 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"fields"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"included"</span><span class="p">:[</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"My field value"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"fieldset"</span><span class="p">:{</span><span class="w">
-          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1773,18 +1810,18 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>Example Project update payload.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
-      </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"248"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"248"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"folder_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to update a project for the division who is registered with the API token you provide.</p>
 <h3 id='request-4'>Request</h3>
@@ -1830,6 +1867,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>No</td>
 <td>More information available <a href="#for-project-updates">here</a></td>
 </tr>
+<tr>
+<td>folder_id</td>
+<td>String</td>
+<td>No</td>
+<td>If your account has the folders feature, you can submit the id of the folder you would like the project to be moved to.</td>
+</tr>
 </tbody></table>
 <h3 id='response-4'>Response</h3>
 <p>Successful requests will return a json payload of the project that was updated and a <code>200</code> status code.</p>
@@ -1843,7 +1886,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Updated Project"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="w"> </span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-12-20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1852,38 +1895,44 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
     </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"8"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"user"</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"fields"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"folder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.handshq.com/projects/1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"included"</span><span class="p">:[</span><span class="w">
+  </span><span class="nl">"included"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"248"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"field"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"attributes"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"required"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"248"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client reference"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"relationships"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"fieldset"</span><span class="p">:{</span><span class="w">
-          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"58"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"fieldset"</span><span class="w">
+      </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fieldset"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fieldset"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -1898,34 +1947,36 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>200</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-      </span><span class="p">}]</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1945,34 +1996,36 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>200</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
-      </span><span class="p">}]</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Project"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"archived_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+    </span><span class="nl">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"app_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://handshq.com/projects/123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1994,23 +2047,23 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <blockquote>
 <p>Example Project duplicated payload.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My duplicated project"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-20"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"user_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maddox@daystrom.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"project"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My duplicated project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-12-20"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fields_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My field value"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"folder_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint allows you to duplicate a project that exists within the division that is registered with the API token you provide.</p>
 
-<p>The project is duplicated asynchronously, so will not be available at this point. Successful requests will return a json payload detailing the duplication process and a <code>201</code> status code.  The duplication process information provides the id of the duplication process, the time that the duplication was requested and the current status of the duplication process - queued, in progress, complete or failed.</p>
+<p>The project is duplicated asynchronously, so will not be available at this point. Successful requests will return a json payload detailing the duplication process and a <code>201</code> status code. The duplication process information provides the id of the duplication process, the time that the duplication was requested and the current status of the duplication process - queued, in progress, complete or failed.</p>
 
 <p>If you wish to access the status of the duplication process, and check if the duplicated project and version pdf has been generated, you can use the duplication process id to poll for the current status of the duplication process - further information <a href="#viewing-project-duplication-process">here</a></p>
 
@@ -2073,6 +2126,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>Object</td>
 <td>No</td>
 <td>More information available <a href="#for-project-creation">here</a></td>
+</tr>
+<tr>
+<td>folder_id</td>
+<td>String</td>
+<td>No</td>
+<td>If your account has the folders feature, you can submit the id of the folder you would like the project to be moved to after duplication, if this differs from the original project.</td>
 </tr>
 </tbody></table>
 <h3 id='response-7'>Response</h3>
@@ -2612,6 +2671,60 @@ Fieldset information will be provided as well as fields, these describe the grou
 Also, field values must correspond to their specific data type (e.g. dates).</p>
 
 <p>Both of these pieces of information can be found as part of the <code>/fields</code> payload.</p>
+<h1 id='folders'>Folders</h1><h2 id='viewing-your-folders'>Viewing your folders</h2>
+<p>If your account has the folders feature, this endpoint allows you to view the folders that belong to the division registered to the API token you provide.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/folders <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: bearer [api_token]"</span>
+</code></pre></div>
+<blockquote>
+<p>200</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Folder 1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"folder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Folder 2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/folders</code></p>
+<h3 id='allowed-query-parameters'>Allowed Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>search</td>
+<td>String</td>
+<td>No</td>
+<td>Provide a search field to search the folder name</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a collection of folders and a <code>200</code> status code.
+Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <h1 id='personnel'>Personnel</h1><h2 id='viewing-your-personnel'>Viewing your personnel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: bearer [api_token]"</span>
