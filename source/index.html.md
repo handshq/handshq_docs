@@ -16,6 +16,7 @@ includes:
   - projects
   - version_pdfs
   - fields
+  - folders
   - personnel
   - training
   - roles

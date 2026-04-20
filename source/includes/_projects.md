@@ -11,86 +11,98 @@ curl https://api.handshq.com/v1/projects \
 > 200
 
 ```json
-  {
-    "data": [
-      {
-        "id": "1234",
-        "type": "project",
-        "attributes": {
-          "name": "Test Project",
-          "reference": "ABC1",
-          "start_date": "2021-12-20",
-          "end_date": "2022-12-21",
-          "archived_at": null,
-          "state": "not_submitted"
-        },
-        "relationships": {
-          "fields": {
-            "data": [
-              {
-                "id": "123",
-                "type": "field"
-              },
-              {
-                "id": "234",
-                "type": "field"
-              }
-            ]
-          },
-          "user": {
-            "data": {
-              "id": "345",
-              "type": "user"
+{
+  "data": [
+    {
+      "id": "1234",
+      "type": "project",
+      "attributes": {
+        "name": "Test Project",
+        "reference": "ABC1",
+        "start_date": "2021-12-20",
+        "end_date": "2022-12-21",
+        "archived_at": null,
+        "state": "not_submitted"
+      },
+      "relationships": {
+        "fields": {
+          "data": [
+            {
+              "id": "123",
+              "type": "field"
+            },
+            {
+              "id": "234",
+              "type": "field"
             }
+          ]
+        },
+        "user": {
+          "data": {
+            "id": "345",
+            "type": "user"
           }
         },
-        "links": {
-          "app_url": "https://app.handshq.com/projects/1234"
+        "folder": {
+          "data": {
+            "id": "678",
+            "type": "folder"
+          }
         }
       },
-      {
-        "id": "5678",
-        "type": "project",
-        "attributes": {
-          "name": "Test Project 2",
-          "reference": "ABC2",
-          "start_date": "2021-12-20",
-          "end_date": "2022-12-21",
-          "archived_at": null,
-          "state": "not_submitted"
-        },
-        "relationships": {
-          "fields": {
-            "data": [
-              {
-                "id": "123",
-                "type": "field"
-              },
-              {
-                "id": "234",
-                "type": "field"
-              }
-            ]
-          },
-          "user": {
-            "data": {
-              "id": "345",
-              "type": "user"
+      "links": {
+        "app_url": "https://app.handshq.com/projects/1234"
+      }
+    },
+    {
+      "id": "5678",
+      "type": "project",
+      "attributes": {
+        "name": "Test Project 2",
+        "reference": "ABC2",
+        "start_date": "2021-12-20",
+        "end_date": "2022-12-21",
+        "archived_at": null,
+        "state": "not_submitted"
+      },
+      "relationships": {
+        "fields": {
+          "data": [
+            {
+              "id": "123",
+              "type": "field"
+            },
+            {
+              "id": "234",
+              "type": "field"
             }
+          ]
+        },
+        "user": {
+          "data": {
+            "id": "345",
+            "type": "user"
           }
         },
-        "links": {
-          "app_url": "https://app.handshq.com/projects/5678"
+        "folder": {
+          "data": {
+            "id": "678",
+            "type": "folder"
+          }
         }
-      }
-    ],
-    "meta": {
-      "pagination": {
-          "requested_page": 1,
-          "total_pages": 1
+      },
+      "links": {
+        "app_url": "https://app.handshq.com/projects/5678"
       }
     }
+  ],
+  "meta": {
+    "pagination": {
+      "requested_page": 1,
+      "total_pages": 1
+    }
   }
+}
 ```
 
 This endpoint allows you to view projects for the division who is registered with the API token you provide.
@@ -100,11 +112,12 @@ This endpoint allows you to view projects for the division who is registered wit
 `GET https://api.handshq.com/v1/projects`
 
 ### Allowed Query Parameters
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-reference | String | No | Only projects with a matching reference will be returned
-with_fields | Boolean | No | If set to true will include the fields of projects in the `included` section of the response, see the [fields index](#fields-index) endpoint for an example of the attributes on fields.
-archived_status | String | No | Returns only archived projects if set to 'archived', unarchived projects if set to 'unarchived', and all projects if set to 'all'. When no query parameter is specified, the entire collection will be returned.
+
+| Parameter       | Format  | Required | Description                                                                                                                                                                                                      |
+| --------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| reference       | String  | No       | Only projects with a matching reference will be returned                                                                                                                                                         |
+| with_fields     | Boolean | No       | If set to true will include the fields of projects in the `included` section of the response, see the [fields index](#fields-index) endpoint for an example of the attributes on fields.                         |
+| archived_status | String  | No       | Returns only archived projects if set to 'archived', unarchived projects if set to 'unarchived', and all projects if set to 'all'. When no query parameter is specified, the entire collection will be returned. |
 
 ### Response
 
@@ -139,7 +152,7 @@ Successful requests will return a json payload of the project a `200` status cod
     "type": "project",
     "attributes": {
       "name": "My Project",
-      "start_date": "2021-12-20" ,
+      "start_date": "2021-12-20",
       "end_date": "2022-12-20",
       "reference": "abc123",
       "archived_at": null,
@@ -148,38 +161,44 @@ Successful requests will return a json payload of the project a `200` status cod
     "relationships": {
       "user": {
         "data": {
-          "id":"8",
-          "type":"user"
+          "id": "8",
+          "type": "user"
         }
       },
-      "fields":{
-        "data":[
+      "fields": {
+        "data": [
           {
-            "id":"248",
-            "type":"field"
+            "id": "248",
+            "type": "field"
           }
         ]
+      },
+      "folder": {
+        "data": {
+          "id": "678",
+          "type": "folder"
+        }
       }
     },
     "links": {
       "app_url": "https://app.handshq.com/projects/1"
     }
   },
-  "included":[
+  "included": [
     {
-      "id":"248",
-      "type":"field",
-      "attributes":{
-        "label":"Client reference",
-        "required":null,
-        "value":"DEF345",
-        "data_type":"string"
+      "id": "248",
+      "type": "field",
+      "attributes": {
+        "label": "Client reference",
+        "required": null,
+        "value": "DEF345",
+        "data_type": "string"
       },
-      "relationships":{
-        "fieldset":{
-          "data":{
-            "id":"58",
-            "type":"fieldset"
+      "relationships": {
+        "fieldset": {
+          "data": {
+            "id": "58",
+            "type": "fieldset"
           }
         }
       }
@@ -202,19 +221,19 @@ curl https://api.handshq.com/v1/projects \
 > Example Project creation payload.
 
 ```json
-  {
-    "user_email": "maddox@daystrom.com",
-    "project": {
-      "name": "My project with extra details",
-      "start_date": "2021-12-20",
-      "end_date": "2022-12-20",
-      "reference": "abc123",
-      "fields_attributes": {
-        "1": "My field value"
-      }
-    }
+{
+  "user_email": "maddox@daystrom.com",
+  "project": {
+    "name": "My project with extra details",
+    "start_date": "2021-12-20",
+    "end_date": "2022-12-20",
+    "reference": "abc123",
+    "fields_attributes": {
+      "1": "My field value"
+    },
+    "folder_id": "345"
   }
-
+}
 ```
 
 This endpoint allows you to create a project for the division who is registered with the API token you provide.
@@ -224,20 +243,23 @@ This endpoint allows you to create a project for the division who is registered 
 `POST https://api.handshq.com/v1/projects`
 
 ### Required Parameters
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-user_email | String | Yes | The email of the HandsHQ user who will be marked as the author of the project
+
+| Parameter  | Format | Required | Description                                                                   |
+| ---------- | ------ | -------- | ----------------------------------------------------------------------------- |
+| user_email | String | Yes      | The email of the HandsHQ user who will be marked as the author of the project |
 
 ### Allowed Project Parameters
+
 All parameters must be nested within `project`
 
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-name | String | Yes | Name of your project, used for document titles, names of PDF documents etc.
-start_date | Date | No | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.
-end_date | Date | No | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.
-reference | String | No | Your internal reference for a project e.g. 'RA01'
-fields_attributes | Object | No | More information available [here](#for-project-creation)
+| Parameter         | Format | Required | Description                                                                                                              |
+| ----------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| name              | String | Yes      | Name of your project, used for document titles, names of PDF documents etc.                                              |
+| start_date        | Date   | No       | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.       |
+| end_date          | Date   | No       | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.       |
+| reference         | String | No       | Your internal reference for a project e.g. 'RA01'                                                                        |
+| fields_attributes | Object | No       | More information available [here](#for-project-creation)                                                                 |
+| folder_id         | String | No       | If your account has the folders feature, you can submit the id of the folder you would like the project to be placed in. |
 
 ### Response
 
@@ -261,38 +283,43 @@ Successful requests will return a json payload of the project that was created a
     "relationships": {
       "user": {
         "data": {
-            "id": "345",
-            "type": "user"
-          }
+          "id": "345",
+          "type": "user"
+        }
       },
-      "fields":{
-        "data":[
+      "fields": {
+        "data": [
           {
-            "id":"248",
-            "type":"field"
+            "id": "248",
+            "type": "field"
           }
         ]
-      }
+      },
+      "folder": {
+        "data": {
+          "id": "345",
+          "type": "folder"
+        }
     },
     "links": {
       "app_url": "https://app.handshq.com/projects/1"
     }
-    },
-    "included":[
+  },
+  "included": [
     {
-      "id":"248",
-      "type":"field",
-      "attributes":{
-        "label":"Client reference",
-        "required":null,
-        "value":"My field value",
-        "data_type":"string"
+      "id": "248",
+      "type": "field",
+      "attributes": {
+        "label": "Client reference",
+        "required": null,
+        "value": "My field value",
+        "data_type": "string"
       },
-      "relationships":{
-        "fieldset":{
-          "data":{
-            "id":"58",
-            "type":"fieldset"
+      "relationships": {
+        "fieldset": {
+          "data": {
+            "id": "58",
+            "type": "fieldset"
           }
         }
       }
@@ -300,7 +327,6 @@ Successful requests will return a json payload of the project that was created a
   ]
 }
 ```
-
 
 ## Updating a project
 
@@ -316,18 +342,18 @@ curl https://api.handshq.com/v1/projects/[id] \
 > Example Project update payload.
 
 ```json
-  {
-    "project": {
-      "name": "My Updated Project",
-      "start_date": "2021-12-20" ,
-      "end_date": "2022-12-20",
-      "reference": "abc123",
-      "fields_attributes": {
-        "248": "DEF345"
-      }
-    }
+{
+  "project": {
+    "name": "My Updated Project",
+    "start_date": "2021-12-20",
+    "end_date": "2022-12-20",
+    "reference": "abc123",
+    "fields_attributes": {
+      "248": "DEF345"
+    },
+    "folder_id": "345"
   }
-
+}
 ```
 
 This endpoint allows you to update a project for the division who is registered with the API token you provide.
@@ -336,18 +362,18 @@ This endpoint allows you to update a project for the division who is registered 
 
 `PATCH https://api.handshq.com/v1/projects/[project_id]`
 
-
 ### Allowed Project Parameters
+
 All parameters must be nested within `project`
 
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-name | String | No | Name of your project, used for document titles, names of PDF documents etc.
-start_date | Date | No | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.
-end_date | Date | No | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.
-reference | String | No | Your internal reference for a project e.g. 'RA01'
-fields_attributes | Object | No | More information available [here](#for-project-updates)
-
+| Parameter         | Format | Required | Description                                                                                                             |
+| ----------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| name              | String | No       | Name of your project, used for document titles, names of PDF documents etc.                                             |
+| start_date        | Date   | No       | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.      |
+| end_date          | Date   | No       | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.      |
+| reference         | String | No       | Your internal reference for a project e.g. 'RA01'                                                                       |
+| fields_attributes | Object | No       | More information available [here](#for-project-updates)                                                                 |
+| folder_id         | String | No       | If your account has the folders feature, you can submit the id of the folder you would like the project to be moved to. |
 
 ### Response
 
@@ -362,7 +388,7 @@ Successful requests will return a json payload of the project that was updated a
     "type": "project",
     "attributes": {
       "name": "My Updated Project",
-      "start_date": "2021-12-20" ,
+      "start_date": "2021-12-20",
       "end_date": "2022-12-20",
       "reference": "abc123",
       "archived_at": null,
@@ -371,38 +397,44 @@ Successful requests will return a json payload of the project that was updated a
     "relationships": {
       "user": {
         "data": {
-          "id":"8",
-          "type":"user"
+          "id": "8",
+          "type": "user"
         }
       },
-      "fields":{
-        "data":[
+      "fields": {
+        "data": [
           {
-            "id":"248",
-            "type":"field"
+            "id": "248",
+            "type": "field"
           }
         ]
+      }
+    },
+    "folder": {
+      "data": {
+        "id": "345",
+        "type": "folder"
       }
     },
     "links": {
       "app_url": "https://app.handshq.com/projects/1"
     }
   },
-  "included":[
+  "included": [
     {
-      "id":"248",
-      "type":"field",
-      "attributes":{
-        "label":"Client reference",
-        "required":null,
-        "value":"DEF345",
-        "data_type":"string"
+      "id": "248",
+      "type": "field",
+      "attributes": {
+        "label": "Client reference",
+        "required": null,
+        "value": "DEF345",
+        "data_type": "string"
       },
-      "relationships":{
-        "fieldset":{
-          "data":{
-            "id":"58",
-            "type":"fieldset"
+      "relationships": {
+        "fieldset": {
+          "data": {
+            "id": "58",
+            "type": "fieldset"
           }
         }
       }
@@ -423,34 +455,36 @@ curl https://api.handshq.com/v1/projects/[project_id]/archive \
 > 200
 
 ```json
- {
+{
   "data": {
-  "id": "123",
-  "type": "project",
-  "attributes": {
-    "name": "Example Project",
-    "reference": "123",
-    "start_date": "2022-01-01",
-    "end_date": "2023-01-01",
-    "archived_at": "2022-01-01T00:00:00+00:00",
-    "state": "approved"
-  },
-  "relationships": {
-    "fields": {
-      "data": [{
-        "id": "456",
-        "type": "field"
-      }]
+    "id": "123",
+    "type": "project",
+    "attributes": {
+      "name": "Example Project",
+      "reference": "123",
+      "start_date": "2022-01-01",
+      "end_date": "2023-01-01",
+      "archived_at": "2022-01-01T00:00:00+00:00",
+      "state": "approved"
     },
-    "user": {
-      "data": {
-        "id": "789",
-        "type": "user"
+    "relationships": {
+      "fields": {
+        "data": [
+          {
+            "id": "456",
+            "type": "field"
+          }
+        ]
+      },
+      "user": {
+        "data": {
+          "id": "789",
+          "type": "user"
+        }
       }
-    }
-  },
-  "links": {
-    "app_url": "https://handshq.com/projects/123"
+    },
+    "links": {
+      "app_url": "https://handshq.com/projects/123"
     }
   }
 }
@@ -480,34 +514,36 @@ curl https://api.handshq.com/v1/projects/[project_id]/unarchive \
 > 200
 
 ```json
- {
+{
   "data": {
-  "id": "123",
-  "type": "project",
-  "attributes": {
-    "name": "Example Project",
-    "reference": "123",
-    "start_date": "2022-01-01",
-    "end_date": "2023-01-01",
-    "archived_at": null,
-    "state": "approved"
-  },
-  "relationships": {
-    "fields": {
-      "data": [{
-        "id": "456",
-        "type": "field"
-      }]
+    "id": "123",
+    "type": "project",
+    "attributes": {
+      "name": "Example Project",
+      "reference": "123",
+      "start_date": "2022-01-01",
+      "end_date": "2023-01-01",
+      "archived_at": null,
+      "state": "approved"
     },
-    "user": {
-      "data": {
-        "id": "789",
-        "type": "user"
+    "relationships": {
+      "fields": {
+        "data": [
+          {
+            "id": "456",
+            "type": "field"
+          }
+        ]
+      },
+      "user": {
+        "data": {
+          "id": "789",
+          "type": "user"
+        }
       }
-    }
-  },
-  "links": {
-    "app_url": "https://handshq.com/projects/123"
+    },
+    "links": {
+      "app_url": "https://handshq.com/projects/123"
     }
   }
 }
@@ -539,24 +575,24 @@ curl https://api.handshq.com/v1/projects/[id]/duplications \
 > Example Project duplicated payload.
 
 ```json
-  {
-    "user_email": "maddox@daystrom.com",
-    "project": {
-      "name": "My duplicated project",
-      "start_date": "2022-12-20",
-      "end_date": "2023-12-20",
-      "reference": "abcd1234",
-      "fields_attributes": {
-        "1": "My field value"
-      }
-    }
+{
+  "user_email": "maddox@daystrom.com",
+  "project": {
+    "name": "My duplicated project",
+    "start_date": "2022-12-20",
+    "end_date": "2023-12-20",
+    "reference": "abcd1234",
+    "fields_attributes": {
+      "1": "My field value"
+    },
+    "folder_id": "345"
   }
-
+}
 ```
 
 This endpoint allows you to duplicate a project that exists within the division that is registered with the API token you provide.
 
-The project is duplicated asynchronously, so will not be available at this point. Successful requests will return a json payload detailing the duplication process and a `201` status code.  The duplication process information provides the id of the duplication process, the time that the duplication was requested and the current status of the duplication process - queued, in progress, complete or failed.
+The project is duplicated asynchronously, so will not be available at this point. Successful requests will return a json payload detailing the duplication process and a `201` status code. The duplication process information provides the id of the duplication process, the time that the duplication was requested and the current status of the duplication process - queued, in progress, complete or failed.
 
 If you wish to access the status of the duplication process, and check if the duplicated project and version pdf has been generated, you can use the duplication process id to poll for the current status of the duplication process - further information [here](#viewing-project-duplication-process)
 
@@ -567,20 +603,23 @@ You can also be notified when a version pdf has been generated through our versi
 `POST https://api.handshq.com/v1/projects/[id]/duplications`
 
 ### Required Parameters
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-user_email | String | Yes | The email of the HandsHQ user who will be marked as the author of the project
+
+| Parameter  | Format | Required | Description                                                                   |
+| ---------- | ------ | -------- | ----------------------------------------------------------------------------- |
+| user_email | String | Yes      | The email of the HandsHQ user who will be marked as the author of the project |
 
 ### Allowed Project Parameters
+
 All parameters must be nested within `project`
 
-Parameter | Format | Required | Description
---------- | ------ | -------- | -----------
-name | String | No | Name of your duplicated project, used for document titles, names of PDF documents etc. If not provided, this will default to the name of the original project suffixed with Copy.
-start_date | Date | No | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.
-end_date | Date | No | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.
-reference | String | No | Your internal reference for a project e.g. 'RA01'
-fields_attributes | Object | No | More information available [here](#for-project-creation)
+| Parameter         | Format | Required | Description                                                                                                                                                                          |
+| ----------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name              | String | No       | Name of your duplicated project, used for document titles, names of PDF documents etc. If not provided, this will default to the name of the original project suffixed with Copy.    |
+| start_date        | Date   | No       | To denote when your project starts, used in conjunction with `end_date` to denote whether project is still active.                                                                   |
+| end_date          | Date   | No       | To denote when your project ends, used in conjunction with `start_date` to denote whether project is still active.                                                                   |
+| reference         | String | No       | Your internal reference for a project e.g. 'RA01'                                                                                                                                    |
+| fields_attributes | Object | No       | More information available [here](#for-project-creation)                                                                                                                             |
+| folder_id         | String | No       | If your account has the folders feature, you can submit the id of the folder you would like the project to be moved to after duplication, if this differs from the original project. |
 
 ### Response
 
