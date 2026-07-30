@@ -46,14 +46,26 @@ curl https://api.handshq.com/v1/personnel \
               "type": "role"
             }
           ]
+        },
+        "teams": {
+          "data": [
+            {
+              "id": "123",
+              "type": "team"
+            },
+            {
+              "id": "321",
+              "type": "team"
+            }
+          ]
+        },
+        "primary_role": {
+          "data": {
+            "id": "123",
+            "type": "primary_role"
+          }
         }
       },
-      "primary_role": {
-        "data": {
-          "id": "123",
-          "type": "primary_role"
-        }
-      }
     }
   ],
   "meta": {
@@ -128,6 +140,18 @@ curl https://api.handshq.com/v1/personnel/[id] \
             }
           ]
         },
+        "teams": {
+          "data": [
+            {
+              "id": "123",
+              "type": "team"
+            },
+            {
+              "id": "321",
+              "type": "team"
+            }
+          ]
+        },
         "primary_role": {
           "data": {
             "id": "123",
@@ -171,6 +195,7 @@ curl https://api.handshq.com/v1/personnel \
       "external_id": "JSMITH",
       "line_manager_id": "456",
       "role_ids": ["987", "765"],
+      "team_ids": ["987", "765"],
       "primary_role_id": "987"
     }
   }
@@ -194,6 +219,7 @@ profile_access_enabled | Boolean | No | Allow employee to view their profile (pe
 external_id | String | No | External ID of the personnel
 line_manager_id | String | No | ID of the line manager of the personnel
 role_ids | Association IDs | No | IDs of roles that exist in the training register, that the personnel holds. For more information see [Associations](#associations)
+team_ids | Association IDs | No | IDs of teams that exist in the training register, that the personnel is a member of. For more information see [Associations](#associations)
 primary_role_id | String | No | ID of the primary role of the personnel
 
 ### Response
@@ -234,6 +260,18 @@ Successful requests will return a json payload of the newly created personnel an
             }
           ]
         },
+        "teams": {
+          "data": [
+            {
+              "id": "987",
+              "type": "team"
+            },
+            {
+              "id": "765",
+              "type": "team"
+            }
+          ]
+        },
         "primary_role": {
           "data": {
             "id": "987",
@@ -267,6 +305,7 @@ curl https://api.handshq.com/v1/personnel/[id] \
       "external_id": "JSMITH",
       "line_manager_id": "567",
       "role_ids": ["345"],
+      "team_ids": ["345"],
       "primary_role_id": "345"
     }
   }
@@ -291,6 +330,7 @@ profile_access_enabled | Boolean | No | Allow employee to view their profile (pe
 external_id | String | No | External ID of the personnel
 line_manager_id | String | No | ID of the line manager of the personnel
 role_ids | Association IDs | No | IDs of roles that exist in the training register, that the personnel holds. For more information see [Associations](#associations)
+team_ids | Association IDs | No | IDs of teams that exist in the training register, that the personnel is a member of. For more information see [Associations](#associations)
 primary_role_id | String | No | ID of the primary role of the personnel
 
 ### Response
@@ -324,6 +364,14 @@ Successful requests will return a json payload of the updated personnel and a `2
             {
               "id": "345",
               "type": "role"
+            }
+          ]
+        },
+        "teams": {
+          "data": [
+            {
+              "id": "345",
+              "type": "team"
             }
           ]
         },
@@ -411,6 +459,14 @@ Successful requests will return a json payload of the archived personnel and a `
             }
           ]
         },
+        "teams": {
+          "data": [
+            {
+              "id": "345",
+              "type": "team"
+            }
+          ]
+        },
         "primary_role": {
           "data": {
             "id": "345",
@@ -463,6 +519,14 @@ This endpoint allows you to unarchive an archived personnel.
             {
               "id": "345",
               "type": "role"
+            }
+          ]
+        },
+        "teams": {
+          "data": [
+            {
+              "id": "345",
+              "type": "team"
             }
           ]
         },

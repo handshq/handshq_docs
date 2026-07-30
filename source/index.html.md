@@ -17,6 +17,7 @@ includes:
   - version_pdfs
   - fields
   - folders
+  - teams
   - personnel
   - training
   - roles
