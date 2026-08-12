@@ -392,6 +392,14 @@
               </ul>
           </li>
           <li>
+            <a href="#teams" class="toc-h1 toc-link" data-title="Teams">Teams</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#viewing-your-teams" class="toc-h2 toc-link" data-title="Viewing your teams">Viewing your teams</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#personnel" class="toc-h1 toc-link" data-title="Personnel">Personnel</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2725,6 +2733,60 @@ Also, field values must correspond to their specific data type (e.g. dates).</p>
 <h3 id='response'>Response</h3>
 <p>Successful requests will return a collection of folders and a <code>200</code> status code.
 Results in <code>data</code> are <a href="#pagination">paginated</a></p>
+<h1 id='teams'>Teams</h1><h2 id='viewing-your-teams'>Viewing your teams</h2>
+<p>If your account has the teams feature, this endpoint allows you to view the teams that belong to the division registered to the API token you provide.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/teams <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: bearer [api_token]"</span>
+</code></pre></div>
+<blockquote>
+<p>200</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Team 1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Team 2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"requested_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='request'>Request</h3>
+<p><code>GET https://api.handshq.com/v1/teams</code></p>
+<h3 id='allowed-query-parameters'>Allowed Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Format</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>search</td>
+<td>String</td>
+<td>No</td>
+<td>Provide a search field to search the team name</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>Successful requests will return a collection of teams and a <code>200</code> status code.
+Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <h1 id='personnel'>Personnel</h1><h2 id='viewing-your-personnel'>Viewing your personnel</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://api.handshq.com/v1/personnel <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: bearer [api_token]"</span>
@@ -2767,14 +2829,26 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
               </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"primary_role"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2855,6 +2929,18 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
@@ -2888,6 +2974,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"456"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"987"</span><span class="p">,</span><span class="w"> </span><span class="s2">"765"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"team_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"987"</span><span class="p">,</span><span class="w"> </span><span class="s2">"765"</span><span class="p">],</span><span class="w">
       </span><span class="nl">"primary_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2949,6 +3036,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>IDs of roles that exist in the training register, that the personnel holds. For more information see <a href="#associations">Associations</a></td>
 </tr>
 <tr>
+<td>team_ids</td>
+<td>Association IDs</td>
+<td>No</td>
+<td>IDs of teams that exist in the training register, that the personnel is a member of. For more information see <a href="#associations">Associations</a></td>
+</tr>
+<tr>
 <td>primary_role_id</td>
 <td>String</td>
 <td>No</td>
@@ -2992,6 +3085,18 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987"</span><span class="p">,</span><span class="w">
@@ -3019,6 +3124,7 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
       </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JSMITH"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"line_manager_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"567"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"role_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"345"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"team_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"345"</span><span class="p">],</span><span class="w">
       </span><span class="nl">"primary_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -3080,6 +3186,12 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
 <td>IDs of roles that exist in the training register, that the personnel holds. For more information see <a href="#associations">Associations</a></td>
 </tr>
 <tr>
+<td>team_ids</td>
+<td>Association IDs</td>
+<td>No</td>
+<td>IDs of teams that exist in the training register, that the personnel is a member of. For more information see <a href="#associations">Associations</a></td>
+</tr>
+<tr>
 <td>primary_role_id</td>
 <td>String</td>
 <td>No</td>
@@ -3116,6 +3228,14 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
             </span><span class="p">{</span><span class="w">
               </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3188,6 +3308,14 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"primary_role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
@@ -3235,6 +3363,14 @@ Results in <code>data</code> are <a href="#pagination">paginated</a></p>
             </span><span class="p">{</span><span class="w">
               </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"teams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"345"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"team"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
