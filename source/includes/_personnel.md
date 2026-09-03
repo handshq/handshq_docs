@@ -89,11 +89,173 @@ Parameter | Format | Required | Description
 --------- | ------ | -------- | -----------
 search    | String | No       | Provide a search field to search the first name, last name or email address of personnel
 archived  | String | No       | Provide a param of true to fetch only archived personnel
+with_role_training_statuses | Boolean | No | If set to true will include a training status breakdown per role and course in the `included` section of the response, as `personnel_role_requirement_report` and `personnel_role_course_requirement_report` resources. See [Role training statuses](#role-training-statuses) for an example.
 
 ### Response
 
 Successful requests will return a collection of personnel and a `200` status code.
 Results in `data` are [paginated](#pagination)
+
+### Role training statuses
+
+By default, a personnel's `training_status` is a single aggregate across all of their assigned roles. It tells you that someone is non-compliant, but not why - which of their roles is driving the requirement, which courses are assigned to that role, or whether a given course is required or optional.
+
+Setting `with_role_training_statuses` to `true` adds that breakdown to the `included` section of the response: one `personnel_role_requirement_report` per role held by the personnel, and one `personnel_role_course_requirement_report` per course assigned to that role.
+
+```shell
+curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
+  -H "Accept: application/json" \
+  -H "Authorization: bearer [api_token]"
+```
+
+> 200
+
+```json
+{
+  "data": [
+    {
+      "id": "12345",
+      "type": "personnel",
+      "attributes": {
+        "first_name": "John",
+        "last_name": "Smith",
+        "email": "john.smith@email.com",
+        "archived_at": null,
+        "external_id": "JSMITH",
+        "type": "employee",
+        "training_status": {
+          "status": "expired",
+          "description": "expired training"
+        }
+      },
+      "relationships": {
+        "line_manager": {
+          "data": {
+            "id": "4321",
+            "type": "line_manager"
+          }
+        },
+        "roles": {
+          "data": [
+            {
+              "id": "123",
+              "type": "role"
+            }
+          ]
+        },
+        "teams": {
+          "data": []
+        },
+        "primary_role": {
+          "data": {
+            "id": "123",
+            "type": "primary_role"
+          }
+        },
+        "personnel_role_requirement_reports": {
+          "data": [
+            {
+              "id": "11dbd45e-a4bc-4890-8024-58db3d7241e1",
+              "type": "personnel_role_requirement_report"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "11dbd45e-a4bc-4890-8024-58db3d7241e1",
+      "type": "personnel_role_requirement_report",
+      "attributes": {
+        "training_status": {
+          "status": "expired",
+          "description": "expired training"
+        }
+      },
+      "relationships": {
+        "role": {
+          "data": {
+            "id": "123",
+            "type": "role"
+          }
+        },
+        "personnel": {
+          "data": {
+            "id": "12345",
+            "type": "personnel"
+          }
+        },
+        "personnel_role_course_requirement_reports": {
+          "data": [
+            {
+              "id": "01c69542-8b53-4394-b4d0-4ad82f345e62",
+              "type": "personnel_role_course_requirement_report"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "01c69542-8b53-4394-b4d0-4ad82f345e62",
+      "type": "personnel_role_course_requirement_report",
+      "attributes": {
+        "course_id": 111,
+        "required": true,
+        "training_status": {
+          "status": "expired",
+          "description": "expired training"
+        }
+      },
+      "relationships": {
+        "personnel": {
+          "data": {
+            "id": "12345",
+            "type": "personnel"
+          }
+        },
+        "role": {
+          "data": {
+            "id": "123",
+            "type": "role"
+          }
+        },
+        "course": {
+          "data": {
+            "id": "111",
+            "type": "course"
+          }
+        }
+      }
+    },
+    {
+      "id": "123",
+      "type": "role",
+      "attributes": {
+        "position": "Scaffolder"
+      }
+    },
+    {
+      "id": "111",
+      "type": "course",
+      "attributes": {
+        "name": "Working at Height"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "requested_page": 1,
+      "total_pages": 1
+    },
+    "is_archived_set": false
+  }
+}
+```
+
+The `personnel_role_requirement_report` for role `123` shows that John's Scaffolder role is `expired`, and the related `personnel_role_course_requirement_report` shows why: the required "Working at Height" course is expired. This is enough to render something like "Scaffolder - expired, because Working at Height is expired and required" instead of just "expired".
+
+`with_role_training_statuses` is also supported on [viewing one personnel](#viewing-one-personnel).
 
 ## Viewing one personnel
 
@@ -168,6 +330,11 @@ This endpoint allows you to view a personnel by providing the id.
 ### Request
 
 `GET https://api.handshq.com/v1/personnel/[id]`
+
+### Allowed Query Parameters
+Parameter | Format | Required | Description
+--------- | ------ | -------- | -----------
+with_role_training_statuses | Boolean | No | If set to true will include a training status breakdown per role and course in the `included` section of the response. See [Role training statuses](#role-training-statuses) for an example.
 
 ### Response
 
