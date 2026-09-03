@@ -14,7 +14,7 @@ curl https://api.handshq.com/v1/personnel \
 {
   "data": [
     {
-      "id": "12345",
+      "id": "1234",
       "type": "personnel",
       "attributes": {
         "first_name": "John",
@@ -114,7 +114,7 @@ curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
 {
   "data": [
     {
-      "id": "12345",
+      "id": "1234",
       "type": "personnel",
       "attributes": {
         "first_name": "John",
@@ -182,7 +182,7 @@ curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
         },
         "personnel": {
           "data": {
-            "id": "12345",
+            "id": "1234",
             "type": "personnel"
           }
         },
@@ -210,7 +210,7 @@ curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
       "relationships": {
         "personnel": {
           "data": {
-            "id": "12345",
+            "id": "1234",
             "type": "personnel"
           }
         },
