@@ -106,7 +106,7 @@ Resource | Description
 -------- | -----------
 `personnel_role_requirement` | One per role held by the personnel, carrying the training status of that role
 `personnel_role_course_requirement` | One per course assigned to one of those roles, carrying the training status of that course for that role
-`personnel_unlinked_requirement` | One per course assigned to the personnel directly rather than through one of their roles
+`personnel_unlinked_requirement` | One per course assigned to the personnel directly that is not assigned to any of their roles
 
 ```shell
 curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
@@ -301,7 +301,7 @@ curl https://api.handshq.com/v1/personnel?with_role_training_statuses=true \
 
 The `personnel_role_requirement` for role `123` shows that John's Scaffolder role is `expired`, and the related `personnel_role_course_requirement` shows why: the required "Working at Height" course is expired. This is enough to render something like "Scaffolder - expired, because Working at Height is expired and required" instead of just "expired".
 
-The `personnel_unlinked_requirement` covers "First Aid", a course assigned to John directly rather than through one of their roles.
+The `personnel_unlinked_requirement` covers "First Aid", a course assigned to John directly and not assigned to the Scaffolder role.
 
 Things worth knowing when reading the breakdown:
 
@@ -309,6 +309,7 @@ Things worth knowing when reading the breakdown:
 - There is one `personnel_role_course_requirement` per role and course pair, so a course assigned to two of a personnel's roles can be required by one of them and not the other. Each one reports the status that course has for that role.
 - `overridden` means the `required` value was set against this personnel and course rather than inherited from the role. A role can require a course while an override makes it not required for one of the personnel holding that role.
 - A `personnel_unlinked_requirement` is not tied to a role, so it counts towards the training status of *every* `personnel_role_requirement` the personnel has. A role whose own courses need no training can still be `missing` because of an unlinked requirement.
+- Only courses that are not assigned to any of the personnel's roles appear as unlinked requirements. A course assigned directly to the personnel that is also assigned to one of their roles is reported against that role as a `personnel_role_course_requirement` instead, so no course appears in both places.
 
 `with_role_training_statuses` is also supported on [viewing one personnel](#viewing-one-personnel).
 
