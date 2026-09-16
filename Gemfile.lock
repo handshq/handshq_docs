@@ -74,9 +74,6 @@ GEM
       toml
       uglifier (~> 3.0)
       webrick
-    middleman-sprockets (4.1.1)
-      middleman-core (~> 4.0)
-      sprockets (>= 3.0)
     middleman-syntax (3.4.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
@@ -101,17 +98,9 @@ GEM
     redcarpet (3.6.0)
     rexml (3.2.6)
     rouge (3.30.0)
-    sass (3.7.4)
-      sass-listen (~> 4.0.0)
-    sass-listen (4.0.0)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     sassc (2.4.0)
       ffi (~> 1.9)
     servolux (0.13.0)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
     temple (0.10.3)
     thor (1.2.2)
     tilt (2.0.11)
@@ -129,16 +118,14 @@ PLATFORMS
 DEPENDENCIES
   middleman (~> 4.4)
   middleman-autoprefixer (~> 3.0)
-  middleman-sprockets (~> 4.1)
   middleman-syntax (~> 3.2)
   nokogiri (~> 1.13.3)
   redcarpet (~> 3.6.0)
   rouge (~> 3.21)
-  sass
   webrick
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.3.11p205
 
 BUNDLED WITH
    2.5.6
