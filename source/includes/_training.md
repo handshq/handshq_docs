@@ -45,7 +45,7 @@ All parameters must be nested within `training`
 
 ### Response
 
-Successful requests will return a json payload of the newly created training and a `201` status code
+Successful requests will return a json payload of the newly created training and a `201` status code.
 
 > 201
 
