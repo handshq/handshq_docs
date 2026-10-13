@@ -1,5 +1,215 @@
 # Training
 
+## Viewing your trainings
+
+```shell
+curl https://api.handshq.com/v1/trainings \
+  -H "Accept: application/json" \
+  -H "Authorization: bearer [api_token]"
+```
+
+> 200
+
+```json
+{
+  "data": [
+    {
+      "id": "123",
+      "type": "training",
+      "attributes": {
+        "start_date": "2026-01-01",
+        "expiry_date": "2026-12-31",
+        "notes": "Lorem ipsum..."
+      },
+      "relationships": {
+        "course": {
+          "data": {
+            "id": "200",
+            "type": "course"
+          }
+        },
+        "personnel": {
+          "data": {
+            "id": "100",
+            "type": "personnel"
+          }
+        }
+      }
+    },
+    {
+      "id": "234",
+      "type": "training",
+      "attributes": {
+        "start_date": "2026-07-11",
+        "expiry_date": "2027-07-10",
+        "notes": null
+      },
+      "relationships": {
+        "course": {
+          "data": {
+            "id": "300",
+            "type": "course"
+          }
+        },
+        "personnel": {
+          "data": {
+            "id": "400",
+            "type": "personnel"
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "requested_page": 1,
+      "total_pages": 1
+    }
+  }
+}
+```
+
+This endpoint allows you to view the trainings that belong to the personnel of the division registered to the API token you provide. If the division is the primary division for that account, all trainings across the account will be returned. If not, only the training for personnel of that division will be returned. The training index returns training for personnel that have not been archived.
+
+### Request
+
+`GET https://api.handshq.com/v1/trainings`
+
+### Response
+
+Successful requests will return a collection of trainings and a `200` status code, with the most recently created training first.
+Results in `data` are [paginated](#pagination)
+
+To fetch the trainings of a single personnel, use [viewing trainings for a personnel](#viewing-trainings-for-a-personnel).
+
+## Viewing trainings for a personnel
+
+```shell
+curl https://api.handshq.com/v1/personnel/[personnel_id]/trainings \
+  -H "Accept: application/json" \
+  -H "Authorization: bearer [api_token]"
+```
+
+> 200
+
+```json
+{
+  "data": [
+    {
+      "id": "123",
+      "type": "training",
+      "attributes": {
+        "start_date": "2026-01-01",
+        "expiry_date": "2026-12-31",
+        "notes": "Lorem ipsum..."
+      },
+      "relationships": {
+        "course": {
+          "data": {
+            "id": "200",
+            "type": "course"
+          }
+        },
+        "personnel": {
+          "data": {
+            "id": "100",
+            "type": "personnel"
+          }
+        }
+      }
+    },
+    {
+      "id": "234",
+      "type": "training",
+      "attributes": {
+        "start_date": "2026-07-11",
+        "expiry_date": "2027-07-10",
+        "notes": null
+      },
+      "relationships": {
+        "course": {
+          "data": {
+            "id": "300",
+            "type": "course"
+          }
+        },
+        "personnel": {
+          "data": {
+            "id": "100",
+            "type": "personnel"
+          }
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "requested_page": 1,
+      "total_pages": 1
+    }
+  }
+}
+```
+
+This endpoint allows you to view the trainings that belong to a single personnel. The same division access rules as the [training index](#viewing-your-trainings) apply, so a personnel that is not accessible to the division registered to the API token will return an empty collection rather than a `404`.
+
+### Request
+
+`GET https://api.handshq.com/v1/personnel/[personnel_id]/trainings`
+
+### Response
+
+Successful requests will return a collection of that personnel's trainings and a `200` status code, with the most recently created training first.
+Results in `data` are [paginated](#pagination)
+
+## Viewing one training
+
+```shell
+curl https://api.handshq.com/v1/trainings/[id] \
+  -H "Accept: application/json" \
+  -H "Authorization: bearer [api_token]"
+```
+
+> 200
+
+```json
+{
+  "data": {
+    "id": "123",
+    "type": "training",
+    "attributes": {
+      "start_date": "2026-01-01",
+      "expiry_date": "2026-12-31",
+      "notes": "Lorem ipsum..."
+    },
+    "relationships": {
+      "course": {
+        "data": {
+          "id": "200",
+          "type": "course"
+        }
+      },
+      "personnel": {
+        "data": {
+          "id": "100",
+          "type": "personnel"
+        }
+      }
+    }
+  }
+}
+```
+
+This endpoint allows you to view a training by providing the id. As with the index, only trainings belonging to the personnel of the division registered to the API token can be viewed, and a training belonging to another division or account will return a `404`.
+
+### Request
+
+`GET https://api.handshq.com/v1/trainings/[id]`
+
+### Response
+
+Successful requests will return a json payload of that training and a `200` status code
+
 ## Creating a training
 
 ```shell
