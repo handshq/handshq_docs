@@ -58,6 +58,9 @@ The body of an event subscription will vary depending on the type of event being
             "type": "version_pdf"
           }
         }
+      },
+      "meta": {
+        "is_latest_version": true
       }
     },
     {
@@ -134,6 +137,7 @@ The body of an event subscription will vary depending on the type of event being
 
   - The `Version` of a `Project` which had been generated into a PDF
     - Included numbering of the version
+    - `meta.is_latest_version` is `true` when this is the project's most recently created version at the time the event is sent
 
 
   - The author (`User`) of the project.
@@ -142,6 +146,7 @@ The body of an event subscription will vary depending on the type of event being
   <strong>Please Note</strong>:
   <li>The URL of the PDF (as described in "links" => "content") is only valid for 48 hours.</li>
   <li>This event may fire on occasion for the same version, in cases where a PDF is being regenerated (e.g. in the case of digital signatures)</li>
+  <li>The included version's <code>is_latest_version</code> is only <code>true</code> when the PDF is for the project's most recently created version. It will be <code>false</code> when a newer version exists, for example when a PDF is regenerated for an earlier version after a digital signature is added to it.</li>
 </aside>
 
 ## Project Archived
